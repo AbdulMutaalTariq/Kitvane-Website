@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Compressor: Kitvane Tools</title>
+  <meta name="description" content="Compress images to exact KB size online. Resize JPG, PNG, WebP to target file size. No upload to server — everything runs in your browser. Free and instant." />
+  <meta name="keywords" content="image compressor, compress image online, compress jpg online, compress image to 100kb, resize image online, image size reducer, webp converter" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kitvane.link/image-compressor/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://kitvane.link/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kitvane.link/og-image.png">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Image Compressor: Kitvane Tools" />
+  <meta property="og:description" content="Compress images to exact KB size online. Supports JPG, PNG, WebP. Runs in browser — 100% private." />
+  <meta property="og:url" content="https://kitvane.link/image-compressor/" />
+  <meta property="og:site_name" content="Kitvane" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="Image Compressor: Kitvane Tools" />
+  <meta name="twitter:description" content="Compress JPG, PNG, and WebP images to exact target KB in your browser. Fast, free, and private." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Image Compressor",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Compress images to exact KB size online. Supports JPG, PNG, WebP. Runs entirely in browser.",
+        "url": "https://kitvane.link/image-compressor/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kitvane.link/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Image Compressor",
+            "item": "https://kitvane.link/image-compressor/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does compressing an image reduce its quality?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It depends on the format. JPEG compression is lossy — reducing file size does reduce quality slightly, but at 70–80% quality the difference is barely visible to the human eye. PNG compression is lossless — it reduces file size without any quality loss. WebP supports both modes and typically achieves 25% smaller files than JPEG at the same visual quality." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my image uploaded to any server?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. This tool uses the HTML5 Canvas API in your browser. Your image is never sent to any server. Everything happens locally on your device, so your files remain completely private." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the maximum file size this compressor supports?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The practical limit depends on your device's RAM and browser. Most devices handle images up to 15–20MB without any issues. Very large images (above 30MB) may cause slowness on older devices." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best image format for websites?",
+            "acceptedAnswer": { "@type": "Answer", "text": "WebP is the best format for modern websites. It produces files 25–35% smaller than JPEG at equivalent visual quality, and is supported by all modern browsers (Chrome, Firefox, Safari, Edge). If you need transparency, use WebP instead of PNG — it compresses much better." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I compress a PNG without losing transparency?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. When you select PNG as the output format, the tool uses lossless compression and preserves the transparent background. If you convert a PNG to JPEG, transparency is lost because JPEG does not support alpha channels — the transparent areas become white." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Image Compressor Scoped Fixes ── */
+    /* 1. Preview Wrap: No outer border, 2-column grid with gap (eliminates double border) */
+    .img-preview-wrap {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+    .img-preview-wrap.is-visible {
+      display: grid !important;
+    }
+
+    /* 2. Individual Preview Box: Clean single border and padding */
+    .img-preview-box {
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 180px;
+    }
+    .img-preview-box img {
+      max-width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .img-preview-box p {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* 3. Result Box: Hidden until compressed */
+    #result-box {
+      display: none;
+    }
+    #result-box.is-visible {
+      display: block !important;
+    }
+
+    /* 4. Buttons: Single solid color border, no 2-tone bevel */
+    #download-btn,
+    .btn--success {
+      background: var(--primary) !important;
+      color: var(--primary-ink) !important;
+      border: 1px solid var(--primary-hover) !important;
+      box-shadow: var(--shadow) !important;
+      font-weight: 600;
+      outline: none;
+    }
+    #download-btn:hover,
+    .btn--success:hover {
+      background: var(--primary-hover) !important;
+      border-color: var(--primary-hover) !important;
+      box-shadow: var(--shadow-hover) !important;
+    }
+    #reset-btn {
+      background: var(--surface) !important;
+      color: var(--ink) !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: var(--shadow) !important;
+      font-weight: 600;
+      outline: none;
+    }
+    #reset-btn:hover {
+      background: var(--tint) !important;
+      color: var(--primary) !important;
+      border-color: var(--border) !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+          <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+          Kitvane <span class="navbar__badge">Tools</span>
+        </a>
+        <button class="navbar__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="navbar__nav" role="list">
+          <li><a href="../image-compressor/" class="active">Image Compressor</a></li>
+          <li><a href="../loan-calculator/">EMI Calculator</a></li>
+          <li><a href="../age-calculator/">Age Calculator</a></li>
+          <li><a href="../fancy-text/">Fancy Text</a></li>
+          <li><a href="../5-letter-words/">Word Finder</a></li>
+          <li><a href="../about/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+  <div class="container">
+    <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
+  </div>
+
+  <main>
+    <!-- ══ HERO ════════════════════════════════════════════════ -->
+    <section class="tool-page-hero">
+      <div class="container">
+        <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Image Compressor</span>
+        </nav>
+        <h1>Free Image Compressor<br /><span class="text-gradient">Compress to Any KB Size Online</span></h1>
+        <p>Compress JPG, PNG, or WebP images to your exact target file size. Resize dimensions and convert formats — all in your browser, nothing uploaded to any server.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
+      <div class="tool-box">
+        <div class="tool-box__header">
+          <div class="tool-box__icon">
+            <i data-lucide="image" data-size="22"></i>
+          </div>
+          <h2 class="tool-box__title">Image Compressor Tool</h2>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="upload-area" id="upload-area" role="button" aria-label="Upload image file">
+          <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" aria-label="Select image file" />
+          <div class="upload-area__icon">
+            <i data-lucide="image" data-size="28"></i>
+          </div>
+          <p><strong>Click to choose an image</strong> or drag and drop here</p>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:6px;">JPG, PNG, WebP — up to ~20MB</p>
+        </div>
+
+        <!-- Settings -->
+        <div id="tool-settings" class="hidden" style="margin-top:28px;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="target-kb">Target File Size (KB)</label>
+              <input type="number" id="target-kb" min="5" max="10000" value="100" placeholder="e.g. 100" />
+            </div>
+            <div class="form-group">
+              <label for="output-format">Output Format</label>
+              <select id="output-format">
+                <option value="original">Keep Original</option>
+                <option value="image/jpeg">JPEG</option>
+                <option value="image/png">PNG (lossless)</option>
+                <option value="image/webp">WebP (best for web)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resize-width">Resize Width (px) <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+              <input type="number" id="resize-width" min="1" placeholder="e.g. 1280 (leave empty to keep)" />
+            </div>
+            <div class="form-group">
+              <label for="resize-height">Resize Height (px) <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+              <input type="number" id="resize-height" min="1" placeholder="e.g. 720 (leave empty to keep)" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="lock-aspect" checked style="margin-right:6px;" />
+              Lock aspect ratio (auto-calculate missing dimension)
+            </label>
+          </div>
+
+          <button class="btn btn--primary" id="compress-btn" style="margin-top:8px;">
+            Compress Image
+          </button>
+        </div>
+
+        <!-- Preview -->
+        <div class="img-preview-wrap" id="preview-wrap">
+          <div class="img-preview-box">
+            <img id="preview-original" src="" alt="Original image preview" />
+            <p id="original-info">Original</p>
+          </div>
+          <div class="img-preview-box">
+            <img id="preview-compressed" src="" alt="Compressed image preview" />
+            <p id="compressed-info">Compressed</p>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-box" id="result-box">
+          <div class="results-grid" id="result-stats"></div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn btn--primary" id="download-btn">Download Compressed Image</button>
+            <button class="btn btn--secondary" id="reset-btn">Compress Another</button>
+          </div>
+        </div>
+      </div>
+      <!-- END TOOL BOX -->
+
+      <!-- ══ AD SLOT — MID ══════════════════════════════════════ -->
+      <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
+
+      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
+      <article class="content-section" id="content">
+
+        <h2>What Does This Image Compressor Do?</h2>
+        <p>This tool reduces your image file size using the HTML5 Canvas API — the same technology built into every modern browser. You set a target size in kilobytes (KB), and the tool iterates the JPEG quality setting until it reaches your target. For PNG, it uses lossless compression. For WebP, it uses the browser's built-in encoder.</p>
+        <p>Unlike most online compressors, <strong>your image is never uploaded to a server</strong>. The entire process happens on your device. This matters for documents, ID photos, sensitive screenshots, or any image you would not want stored on a stranger's server.</p>
+
+        <h2>How to Compress an Image — 3 Steps</h2>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-item__num">1</div>
+            <div class="step-item__content">
+              <p class="step-item__title">Choose or drag your image file</p>
+              <p style="margin:0;">Click the upload area and select a JPG, PNG, or WebP file from your device. Drag-and-drop also works on desktop.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-item__num">2</div>
+            <div class="step-item__content">
+              <p class="step-item__title">Set your target size and options</p>
+              <p style="margin:0;">Enter your target file size in KB (e.g., 100 KB for a web image, 200 KB for an email attachment). Optionally, set a max width or height to resize the image. Select an output format if you want to convert.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-item__num">3</div>
+            <div class="step-item__content">
+              <p class="step-item__title">Compress and download</p>
+              <p style="margin:0;">Click "Compress Image." The tool processes the file locally and shows you a before/after preview with the exact file sizes. Then click "Download Compressed Image."</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Image Formats Compared — Which Should You Use?</h2>
+        <p>Choosing the right format before compressing matters. The same image compressed to the same visual quality can be significantly different in file size depending on format.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Format</th>
+                <th>Best For</th>
+                <th>Compression Type</th>
+                <th>Transparency</th>
+                <th>Avg Size vs JPEG</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>JPEG / JPG</td>
+                <td>Photos, complex images</td>
+                <td>Lossy</td>
+                <td>No</td>
+                <td>Baseline</td>
+              </tr>
+              <tr>
+                <td>PNG</td>
+                <td>Logos, screenshots, graphics</td>
+                <td>Lossless</td>
+                <td>Yes (alpha)</td>
+                <td>10–30% larger</td>
+              </tr>
+              <tr>
+                <td>WebP</td>
+                <td>Web images (all types)</td>
+                <td>Lossy + Lossless</td>
+                <td>Yes</td>
+                <td>25–35% smaller</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box info-box--tip">
+          <strong>Tip:</strong> For modern web development, always prioritize <strong>WebP</strong>. It is universally supported across all browsers and delivers the smallest byte payload for both photographs and transparent graphics. Google's Core Web Vitals and PageSpeed Insights recommend WebP by default.
+        </div>
+
+        <h2>Real Examples — Before and After Compression</h2>
+        <p>To understand what compression actually does, here are three real-world scenarios with approximate results:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Image Type</th>
+                <th>Original Size</th>
+                <th>Target</th>
+                <th>Result Size</th>
+                <th>Reduction</th>
+                <th>Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vacation photo (JPEG)</td>
+                <td>3.8 MB</td>
+                <td>150 KB</td>
+                <td>148 KB</td>
+                <td>96%</td>
+                <td>Email attachment</td>
+              </tr>
+              <tr>
+                <td>Product photo (JPEG)</td>
+                <td>1.2 MB</td>
+                <td>80 KB</td>
+                <td>79 KB</td>
+                <td>93%</td>
+                <td>E-commerce site speed</td>
+              </tr>
+              <tr>
+                <td>Logo (PNG)</td>
+                <td>420 KB</td>
+                <td>50 KB (WebP)</td>
+                <td>51 KB</td>
+                <td>88%</td>
+                <td>Website header</td>
+              </tr>
+              <tr>
+                <td>Profile photo (JPEG)</td>
+                <td>2.1 MB</td>
+                <td>200 KB</td>
+                <td>197 KB</td>
+                <td>90%</td>
+                <td>Job application upload</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>When Should You Compress Images?</h2>
+        <p>Most people compress images in one of these situations:</p>
+        <ul>
+          <li><strong>Website performance:</strong> Google uses page speed as a ranking factor. Large images slow down your site and hurt your search ranking. The standard target for web images is under 100–150 KB per image.</li>
+          <li><strong>Email attachments:</strong> Gmail and Outlook have a 25 MB attachment limit, but sending a 10 MB photo is inconsiderate. Compress to under 500 KB for easy sharing.</li>
+          <li><strong>Social media uploads:</strong> Platforms like Instagram and WhatsApp re-compress your images automatically, often in ways that look worse than your own controlled compression. Compress first for better quality control.</li>
+          <li><strong>Online form uploads:</strong> Job portals, visa applications, and university admission forms often set strict file size limits (commonly 200 KB or 500 KB).</li>
+          <li><strong>Cloud storage:</strong> Compressing photos before uploading saves significant cloud storage space over time.</li>
+          <li><strong>Printing:</strong> The reverse situation — you may need to maintain a minimum DPI (dots per inch) for print, so compress carefully without reducing dimensions below print quality.</li>
+          <li><strong>WhatsApp profile pictures and statuses:</strong> WhatsApp compresses images it receives, so pre-compressing to around 100–200 KB gives you more control over final quality.</li>
+        </ul>
+
+        <!-- ══ AD IN CONTENT ═════════════════════════════════════ -->
+        <div class="ad-slot ad-slot--content" aria-hidden="true"></div>
+
+        <h2>Understanding Lossy vs. Lossless Compression</h2>
+        <p>These two terms describe fundamentally different approaches to reducing file size:</p>
+
+        <p><strong>Lossy compression</strong> works by permanently removing image data that is hard for the human eye to detect — fine color gradations, subtle textures in uniform areas, and high-frequency details. The result is a smaller file but one that, if compressed repeatedly, will degrade visibly. JPEG is the most common lossy format. At 80% quality, the difference from the original is usually invisible. At 40% quality, artifacts (blocky patterns) become visible in photos.</p>
+
+        <p><strong>Lossless compression</strong> reorganizes the image data more efficiently without removing any information. The file is smaller but can be fully reconstructed to the original. PNG uses lossless compression. The tradeoff is that lossless files are generally larger than lossy files for the same visual result, making PNG better for graphics with sharp edges (logos, text, screenshots) than for photographs.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Does compressing an image reduce its quality?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                It depends on the format. JPEG compression is lossy — reducing file size does reduce quality slightly, but at 70–80% quality the difference is barely visible to the human eye. PNG compression is lossless, so quality is never affected. For web use, 80% quality JPEG is the industry standard and visually indistinguishable from the original in most cases.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Is my image uploaded to any server?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                No. This tool uses the HTML5 Canvas API, which is built into your browser. Your image is loaded into memory on your own device and processed entirely in JavaScript. No part of the image data is transmitted over the internet to any server. You can even use this tool with your Wi-Fi turned off and it will work perfectly.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              What is the maximum file size this tool supports?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                There is no hard limit set by the tool itself. The practical limit is determined by your device's available RAM and your browser's memory allocation. On most modern phones and computers, images up to 15–20 MB process without any problem. Images above 30 MB may cause the browser tab to become slow on older devices. If you experience issues with very large files, try resizing the dimensions first, which will reduce the file size dramatically.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              What is the best image format for websites?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                WebP is the recommended format for modern websites. At the same visual quality, WebP files are 25–35% smaller than JPEG and 20–30% smaller than PNG. It supports both photos and graphics with transparency. WebP is supported by all modern browsers: Chrome, Firefox, Safari, and Edge. Google PageSpeed Insights specifically recommends using WebP to improve site performance scores.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Can I compress a PNG file without losing its transparent background?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Yes. When you select PNG or WebP as the output format, transparency is preserved. Both formats support alpha channels (transparent pixels). If you select JPEG as the output, transparency cannot be preserved — JPEG does not support alpha channels, and transparent areas will be filled with white. If you need a smaller file with transparency, converting your PNG to WebP is the best option.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Related Tools -->
+        <h2>Related Tools</h2>
+        <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="../loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
+            <div class="card__icon-box">
+              <i data-lucide="calculator" data-size="22"></i>
+            </div>
+            <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">EMI Calculator</p>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Calculate monthly loan payments</p>
+          </a>
+          <a href="../fancy-text/" class="card" style="padding:20px;text-decoration:none;">
+            <div class="card__icon-box">
+              <i data-lucide="type" data-size="22"></i>
+            </div>
+            <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Fancy Text Generator</p>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Create stylish Unicode text</p>
+          </a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+            <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+            Kitvane
+          </a>
+          <p>Free browser-based utility tools. No account. No uploads. Just tools that work.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Tools</p>
+          <ul class="footer__links">
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../loan-calculator/">EMI Calculator</a></li>
+            <li><a href="../age-calculator/">Age Calculator</a></li>
+            <li><a href="../fancy-text/">Fancy Text</a></li>
+            <li><a href="../5-letter-words/">Word Finder</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a href="../privacy-policy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span class="footer-year">2026</span> Kitvane. All rights reserved.</span>
+        <span>Image compression runs 100% in your browser.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/lucide.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // ── Image Compressor Logic ────────────────────────────────────
+    (function () {
+      const fileInput     = document.getElementById('file-input');
+      const uploadArea    = document.getElementById('upload-area');
+      const toolSettings  = document.getElementById('tool-settings');
+      const compressBtn   = document.getElementById('compress-btn');
+      const resetBtn      = document.getElementById('reset-btn');
+      const downloadBtn   = document.getElementById('download-btn');
+      const previewWrap   = document.getElementById('preview-wrap');
+      const previewOrig   = document.getElementById('preview-original');
+      const previewComp   = document.getElementById('preview-compressed');
+      const origInfo      = document.getElementById('original-info');
+      const compInfo      = document.getElementById('compressed-info');
+      const resultBox     = document.getElementById('result-box');
+      const resultStats   = document.getElementById('result-stats');
+      const targetKbEl    = document.getElementById('target-kb');
+      const outputFmtEl   = document.getElementById('output-format');
+      const resizeWidthEl = document.getElementById('resize-width');
+      const resizeHeightEl= document.getElementById('resize-height');
+      const lockAspect    = document.getElementById('lock-aspect');
+
+      let originalFile = null;
+      let compressedDataUrl = null;
+      let compressedMime    = 'image/jpeg';
+
+      function formatBytes(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+      }
+
+      function dataUrlToBytes(dataUrl) {
+        const base64 = dataUrl.split(',')[1];
+        return Math.round((base64.length * 3) / 4);
+      }
+
+      // Drag-and-drop
+      uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('is-dragover');
+      });
+      uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('is-dragover'));
+      uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('is-dragover');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) handleFileLoad(file);
+      });
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files[0]) handleFileLoad(fileInput.files[0]);
+      });
+
+      function handleFileLoad(file) {
+        originalFile = file;
+        const url = URL.createObjectURL(file);
+        previewOrig.src = url;
+        previewOrig.onload = () => URL.revokeObjectURL(url);
+        origInfo.textContent = `Original: ${formatBytes(file.size)} | ${file.name}`;
+        uploadArea.style.display = 'none';
+        toolSettings.classList.remove('hidden');
+        previewWrap.classList.add('is-visible');
+        resultBox.classList.remove('is-visible');
+        compressedDataUrl = null;
+      }
+
+      // Lock aspect ratio on width input
+      resizeWidthEl.addEventListener('input', () => {
+        if (!lockAspect.checked || !previewOrig.naturalWidth) return;
+        const ratio = previewOrig.naturalHeight / previewOrig.naturalWidth;
+        const w = parseInt(resizeWidthEl.value, 10);
+        if (!isNaN(w)) resizeHeightEl.value = Math.round(w * ratio);
+      });
+
+      resizeHeightEl.addEventListener('input', () => {
+        if (!lockAspect.checked || !previewOrig.naturalHeight) return;
+        const ratio = previewOrig.naturalWidth / previewOrig.naturalHeight;
+        const h = parseInt(resizeHeightEl.value, 10);
+        if (!isNaN(h)) resizeWidthEl.value = Math.round(h * ratio);
+      });
+
+      compressBtn.addEventListener('click', () => {
+        if (!originalFile) return;
+        compressBtn.textContent = 'Compressing…';
+        compressBtn.disabled = true;
+
+        // Small delay so UI updates before heavy canvas work
+        setTimeout(() => doCompress(), 40);
+      });
+
+      function doCompress() {
+        const targetKb   = parseFloat(targetKbEl.value) || 100;
+        const targetBytes = targetKb * 1024;
+        let   mime        = outputFmtEl.value;
+        if (mime === 'original') mime = originalFile.type || 'image/jpeg';
+        compressedMime = mime;
+
+        const img = new Image();
+        const objUrl = URL.createObjectURL(originalFile);
+
+        img.onerror = () => {
+          URL.revokeObjectURL(objUrl);
+          compressBtn.textContent = 'Compress Image';
+          compressBtn.disabled = false;
+          window.showToast('Could not process this image format. Please try a JPG, PNG, or WebP.');
+        };
+
+        img.onload = () => {
+          URL.revokeObjectURL(objUrl);
+
+          // Initial output dimensions
+          let outW = img.naturalWidth;
+          let outH = img.naturalHeight;
+          const rw = parseInt(resizeWidthEl.value, 10);
+          const rh = parseInt(resizeHeightEl.value, 10);
+
+          if (rw > 0 && rh > 0) { outW = rw; outH = rh; }
+          else if (rw > 0) { outH = Math.round((rw / img.naturalWidth) * img.naturalHeight); outW = rw; }
+          else if (rh > 0) { outW = Math.round((rh / img.naturalHeight) * img.naturalWidth); outH = rh; }
+
+          function renderCanvas(w, h) {
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            // Fill white background for JPEG (no alpha channel)
+            if (mime === 'image/jpeg') {
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0, 0, w, h);
+            }
+            ctx.drawImage(img, 0, 0, w, h);
+            return canvas;
+          }
+
+          let canvas = renderCanvas(outW, outH);
+
+          // For PNG: lossless compression (warn if user expects strict KB limit)
+          if (mime === 'image/png') {
+            const dataUrl = canvas.toDataURL('image/png');
+            finalize(dataUrl, 'PNG uses lossless compression. For strict target KB, choose WebP or JPEG.');
+            return;
+          }
+
+          // For JPEG / WebP: binary search quality to hit target KB
+          let lo = 0.05, hi = 0.95, bestDataUrl = null;
+          for (let i = 0; i < 15; i++) {
+            const mid = (lo + hi) / 2;
+            const testUrl = canvas.toDataURL(mime, mid);
+            const bytes = dataUrlToBytes(testUrl);
+            bestDataUrl = testUrl;
+
+            if (bytes > targetBytes) {
+              hi = mid;
+            } else {
+              lo = mid;
+            }
+          }
+
+          let finalUrl = canvas.toDataURL(mime, lo);
+          let currentBytes = dataUrlToBytes(finalUrl);
+
+          // If lowest quality is still larger than target KB (huge dimensions), auto-downscale
+          let scalePasses = 0;
+          while (currentBytes > targetBytes * 1.15 && scalePasses < 4) {
+            outW = Math.round(outW * 0.82);
+            outH = Math.round(outH * 0.82);
+            canvas = renderCanvas(outW, outH);
+            finalUrl = canvas.toDataURL(mime, 0.65);
+            currentBytes = dataUrlToBytes(finalUrl);
+            scalePasses++;
+          }
+
+          finalize(finalUrl);
+        };
+        img.src = objUrl;
+      }
+
+      function finalize(dataUrl, customNote = '') {
+        compressedDataUrl = dataUrl;
+        const compBytes = dataUrlToBytes(dataUrl);
+        const origBytes = originalFile.size;
+        const diffPercent = Math.round(((compBytes - origBytes) / origBytes) * 100);
+
+        previewComp.src = dataUrl;
+        compInfo.textContent = `Compressed: ${formatBytes(compBytes)}`;
+
+        let diffBadgeHtml = '';
+        if (compBytes <= origBytes) {
+          const reduction = Math.abs(diffPercent);
+          diffBadgeHtml = `
+            <div class="result-item">
+              <span class="result-item__value" style="color:var(--success);">${reduction}%</span>
+              <span class="result-item__label">Size Reduced</span>
+            </div>
+          `;
+        } else {
+          diffBadgeHtml = `
+            <div class="result-item">
+              <span class="result-item__value" style="color:var(--error);">+${diffPercent}%</span>
+              <span class="result-item__label">Size Increased</span>
+            </div>
+          `;
+        }
+
+        resultStats.innerHTML = `
+          <div class="result-item">
+            <span class="result-item__value">${formatBytes(origBytes)}</span>
+            <span class="result-item__label">Original Size</span>
+          </div>
+          <div class="result-item">
+            <span class="result-item__value" style="color:var(--primary);">${formatBytes(compBytes)}</span>
+            <span class="result-item__label">New File Size</span>
+          </div>
+          ${diffBadgeHtml}
+        `;
+
+        if (customNote) {
+          const noteEl = document.createElement('p');
+          noteEl.style.cssText = 'grid-column:1/-1;font-size:0.85rem;color:var(--warning);margin-top:8px;text-align:center;';
+          noteEl.textContent = customNote;
+          resultStats.appendChild(noteEl);
+        }
+
+        resultBox.classList.add('is-visible');
+        compressBtn.textContent = 'Compress Image';
+        compressBtn.disabled = false;
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      downloadBtn.addEventListener('click', () => {
+        if (!compressedDataUrl) return;
+        const ext = compressedMime.split('/')[1].replace('jpeg', 'jpg');
+        const name = (originalFile.name.split('.').slice(0, -1).join('.') || 'image') + `-compressed.${ext}`;
+        const a = document.createElement('a');
+        a.href = compressedDataUrl;
+        a.download = name;
+        a.click();
+        window.showToast('Image downloaded successfully!');
+      });
+
+      resetBtn.addEventListener('click', () => {
+        originalFile = null;
+        compressedDataUrl = null;
+        fileInput.value = '';
+        uploadArea.style.display = '';
+        toolSettings.classList.add('hidden');
+        previewWrap.classList.remove('is-visible');
+        resultBox.classList.remove('is-visible');
+        previewOrig.src = '';
+        previewComp.src = '';
+        resizeWidthEl.value = '';
+        resizeHeightEl.value = '';
+      });
+
+      // Footer year
+      document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    })();
+  </script>
+
+</body>
+</html>

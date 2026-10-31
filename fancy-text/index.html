@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fancy Text Generator: Kitvane Tools</title>
+  <meta name="description" content="Generate stylish Unicode text instantly. 20+ styles: Gothic, Bold, Cursive, Bubbles, Small Caps, and more. One-click copy for Instagram, Twitter, and WhatsApp. Free." />
+  <meta name="keywords" content="fancy text generator, stylish text, cool fonts, unicode text converter, instagram bio fonts, copy paste fonts, gothic text generator" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kitvane.link/fancy-text/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://kitvane.link/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kitvane.link/og-image.png">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fancy Text Generator: Kitvane Tools" />
+  <meta property="og:description" content="Convert normal text into stylish fonts for Instagram bio, Twitter, and WhatsApp with 1-click copy." />
+  <meta property="og:url" content="https://kitvane.link/fancy-text/" />
+  <meta property="og:site_name" content="Kitvane" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="Fancy Text Generator: Kitvane Tools" />
+  <meta name="twitter:description" content="Generate 20+ aesthetic Unicode fonts for Instagram bio, TikTok, Discord, and WhatsApp. Free 1-click copy." />
+
+  <!-- JSON-LD Schemas -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Fancy Text Generator",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert regular text into 20+ stylish Unicode fonts with instant copy to clipboard.",
+        "url": "https://kitvane.link/fancy-text/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kitvane.link/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Fancy Text Generator",
+            "item": "https://kitvane.link/fancy-text/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why doesn't fancy text work in some apps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fancy Unicode text relies on characters in supplementary Unicode planes (above U+FFFF). Some older apps, operating systems, or platforms don't render these characters and may display them as boxes (□) or question marks (?). Modern platforms like Instagram, Twitter/X, WhatsApp, and Discord fully support them. If a style doesn't show correctly, try a different style — Full Width and Small Caps use the Basic Multilingual Plane and have the best compatibility."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this copy-paste text or actual font changes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This is copy-paste text — real Unicode characters, not font changes. Each 'style' is actually a different set of Unicode characters that happen to look like styled letters. When you paste '𝐇𝐞𝐥𝐥𝐨' into Instagram, it stays bold on every device because those are bold mathematical Unicode characters, not a bold font. No special font needs to be installed anywhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will this work on Instagram bio right now?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Instagram bios support most Unicode fancy text styles. Bold (𝗯𝗼𝗹𝗱), Italic (𝘪𝘵𝘢𝘭𝘪𝘤), Bold Italic, Script/Cursive, and Double Struck are the most popular and reliably render in Instagram bios and captions. Some extreme styles like Negative Circled may have inconsistent rendering depending on the viewer's device emoji font."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does fancy text affect accessibility?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, significantly. Screen readers used by blind and low-vision users read Unicode look-alike characters by their technical Unicode name rather than the intended letter. For example, 𝗛𝗲𝗹𝗹𝗼 in Mathematical Bold might be announced as 'mathematical bold capital H mathematical bold small e...' instead of 'Hello'. We recommend using fancy text only for decorative purposes in social media bios and avoiding it in informational content that needs to be accessible."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are any Unicode styles blocked by social platforms?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some platforms selectively filter Unicode ranges to prevent abuse. Instagram occasionally restricts certain supplementary plane characters in usernames to prevent impersonation. Full-width characters (Ａ, Ｂ, Ｃ...) are sometimes blocked in usernames on certain platforms because they can be used to spoof brand names. Twitter/X has restrictions on certain lookalike characters for the same reason. If a style is blocked in one field (like a username), it usually still works in bios and posts."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+          <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+          Kitvane <span class="navbar__badge">Tools</span>
+        </a>
+        <button class="navbar__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="navbar__nav" role="list">
+          <li><a href="../image-compressor/">Image Compressor</a></li>
+          <li><a href="../loan-calculator/">EMI Calculator</a></li>
+          <li><a href="../age-calculator/">Age Calculator</a></li>
+          <li><a href="../fancy-text/" class="active">Fancy Text</a></li>
+          <li><a href="../5-letter-words/">Word Finder</a></li>
+          <li><a href="../about/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+  <div class="container">
+    <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
+  </div>
+
+  <main>
+    <!-- ══ HERO ════════════════════════════════════════════════ -->
+    <section class="tool-page-hero">
+      <div class="container">
+        <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Fancy Text Generator</span>
+        </nav>
+        <h1>Fancy Text Generator<br /><span class="text-gradient">20+ Stylish Unicode Fonts</span></h1>
+        <p>Type your text and instantly copy 20+ aesthetic Unicode fonts. Perfect for Instagram bios, Twitter handles, TikTok captions, Discord servers, and WhatsApp messages.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
+      <div class="tool-box">
+        <div class="tool-box__header">
+          <div class="tool-box__icon">
+            <i data-lucide="type" data-size="22"></i>
+          </div>
+          <h2 class="tool-box__title">Live Font Transformer</h2>
+        </div>
+
+        <div class="form-group">
+          <label for="font-input">Type or Paste Your Text Here:</label>
+          <textarea id="font-input" rows="3" placeholder="Type something cool here (e.g. Hello World)..." style="font-size:1.15rem;resize:vertical;">Hello World</textarea>
+        </div>
+
+        <div style="margin-top:24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font-size:0.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:700;">Generated Font Styles (Click to Copy)</span>
+            <span id="font-count-label" style="font-size:0.8rem;color:var(--secondary);font-weight:600;">20 Styles Ready</span>
+          </div>
+
+          <div class="font-list" id="font-results">
+            <!-- Rendered dynamically by JS -->
+          </div>
+        </div>
+      </div>
+      <!-- END TOOL BOX -->
+
+      <!-- ══ AD SLOT — MID ══════════════════════════════════════ -->
+      <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
+
+      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
+      <article class="content-section" id="content">
+
+        <h2>What Is Fancy Text &amp; Unicode Text?</h2>
+        <p>When you copy styled text from this generator and paste it into Instagram, Discord, or WhatsApp, you are not applying a traditional computer font like Arial or Times New Roman. Instead, you are using <strong>Unicode characters</strong>.</p>
+        <p>Unicode is an international encoding standard containing more than 149,000 characters from every major writing system, mathematical notation, and emoji catalog. Within Unicode, there are dedicated alphanumeric ranges designed for mathematical formulas (such as <em>Mathematical Alphanumeric Symbols</em> in the U+1D400 block). Because these symbols exist as standardized characters on all modern operating systems (iOS, Android, Windows, macOS, Linux), they display identically across apps without requiring custom font files to be installed.</p>
+
+        <h2>All 20 Font Styles Explained &amp; Best Use Cases</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Style Name</th>
+                <th>Sample Output</th>
+                <th>Best Platform</th>
+                <th>Optimal Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Math Bold</td>
+                <td>𝐇𝐞𝐥𝐥𝐨 𝐖𝐨𝐫𝐥𝐝</td>
+                <td>Instagram, Twitter/X</td>
+                <td>Headings, announcements, bios</td>
+              </tr>
+              <tr>
+                <td>Math Italic</td>
+                <td>𝐻𝑒𝑙𝑙𝑜 𝑊𝑜𝑟𝑙𝑑</td>
+                <td>LinkedIn, Instagram</td>
+                <td>Quotes, book titles, subtle emphasis</td>
+              </tr>
+              <tr>
+                <td>Bold Italic</td>
+                <td>𝑯𝒆𝒍𝒍𝒐 𝑾𝒐𝒓𝒍𝒅</td>
+                <td>Social bios, Discord</td>
+                <td>Dramatic captions, video titles</td>
+              </tr>
+              <tr>
+                <td>Script / Cursive</td>
+                <td>𝐻𝑒𝓁𝓁𝑜 𝒲𝑜𝓇𝓁𝒹</td>
+                <td>Instagram, Tumblr</td>
+                <td>Aesthetic bios, signatures, poetry</td>
+              </tr>
+              <tr>
+                <td>Bold Script</td>
+                <td>𝓗𝓮𝓵𝓵𝓸 𝓦𝓸𝓻𝓵𝓭</td>
+                <td>TikTok, Instagram</td>
+                <td>Luxury branding, wedding captions</td>
+              </tr>
+              <tr>
+                <td>Gothic / Fraktur</td>
+                <td>𝔈𝔵𝔞𝔪𝔭𝔩𝔢</td>
+                <td>Gaming profiles, Discord</td>
+                <td>Gothic aesthetic, gamer tags, heavy metal</td>
+              </tr>
+              <tr>
+                <td>Bold Gothic</td>
+                <td>𝕰𝖝𝖆𝖒𝖕𝖑𝖊</td>
+                <td>Twitter/X names, YouTube</td>
+                <td>Bold profile names, edgy branding</td>
+              </tr>
+              <tr>
+                <td>Double Struck</td>
+                <td>ℍ𝕖𝕝𝕝𝕠 𝕎𝕠𝕣𝕝𝕕</td>
+                <td>Reddit, Twitter/X</td>
+                <td>Mathematical elegance, tech accounts</td>
+              </tr>
+              <tr>
+                <td>Sans-Serif</td>
+                <td>𝖧𝖾𝗅𝗅𝗈 𝖶𝗈𝗋𝗅𝖽</td>
+                <td>Professional bios</td>
+                <td>Clean, minimalist, readable profile text</td>
+              </tr>
+              <tr>
+                <td>Sans Bold</td>
+                <td>𝗛𝗲𝗹𝗹𝗼 𝗪𝗼𝗿𝗹𝗱</td>
+                <td>WhatsApp, Facebook</td>
+                <td>Attention-grabbing announcements</td>
+              </tr>
+              <tr>
+                <td>Sans Italic</td>
+                <td>𝘏𝘦𝘭𝘭𝘰 𝘞𝘰𝘳𝘭𝘥</td>
+                <td>Twitter/X, Medium</td>
+                <td>Modern conversational emphasis</td>
+              </tr>
+              <tr>
+                <td>Sans Bold Italic</td>
+                <td>𝙃𝙚𝙡𝙡𝙤 𝙒𝙤𝙧𝙡𝙙</td>
+                <td>Gaming channels, Twitch</td>
+                <td>High-energy sports/gaming headlines</td>
+              </tr>
+              <tr>
+                <td>Monospace</td>
+                <td>𝙷𝚎𝚕𝚕𝚘 𝚆𝚘𝚛𝚕𝚍</td>
+                <td>GitHub, Developer bios</td>
+                <td>Coding aesthetic, terminal typewriter vibe</td>
+              </tr>
+              <tr>
+                <td>Circled Letters</td>
+                <td>Ⓗⓔⓛⓛⓞ Ⓦⓞⓡⓛⓓ</td>
+                <td>Instagram captions</td>
+                <td>Numbered lists, bubbly aesthetic</td>
+              </tr>
+              <tr>
+                <td>Negative Circled</td>
+                <td>🅗🅔🅛🅛🅞 🅦🅞🅡🅛🅓</td>
+                <td>Product highlights</td>
+                <td>Dark-badge emphasis, coupon codes</td>
+              </tr>
+              <tr>
+                <td>Squared Text</td>
+                <td>🄷🄴🄻🄻🄾 🅆🄾🅁🄻🄳</td>
+                <td>Social headlines</td>
+                <td>Retro block letters, clean borders</td>
+              </tr>
+              <tr>
+                <td>Full Width</td>
+                <td>Ｈｅｌｌｏ　Ｗｏｒｌｄ</td>
+                <td>Aesthetic / Vaporwave</td>
+                <td>Vaporwave, anime discord tags, spacing</td>
+              </tr>
+              <tr>
+                <td>Small Caps</td>
+                <td>ʜᴇʟʟᴏ ᴡᴏʀʟᴅ</td>
+                <td>Instagram bio, Twitter</td>
+                <td>Clean, editorial chic, modern fashion</td>
+              </tr>
+              <tr>
+                <td>Upside Down</td>
+                <td>plɹoM ollǝH</td>
+                <td>Memes, WhatsApp jokes</td>
+                <td>Puzzles, playful bio surprises</td>
+              </tr>
+              <tr>
+                <td>Strikethrough</td>
+                <td>H̶e̶l̶l̶o̶ ̶W̶o̶r̶l̶d̶</td>
+                <td>Sale banners, edits</td>
+                <td>Discounts, humorous corrections</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Where Can You Use Fancy Text?</h2>
+        <ul>
+          <li><strong>Instagram:</strong> Bio intro, highlights covers, feed post captions, and story overlays.</li>
+          <li><strong>Twitter / X:</strong> Display name, profile description, and viral tweets.</li>
+          <li><strong>WhatsApp &amp; Telegram:</strong> About section, status updates, and group chat titles.</li>
+          <li><strong>TikTok:</strong> Account biography and video descriptions.</li>
+          <li><strong>Discord:</strong> Server role names, channel headers, and custom user status.</li>
+          <li><strong>YouTube:</strong> Channel description, community post headlines, and pinned comments.</li>
+          <li><strong>Gaming Usernames:</strong> Steam, Roblox, PUBG, and Free Fire screen names.</li>
+        </ul>
+
+        <!-- ══ AD IN CONTENT ═════════════════════════════════════ -->
+        <div class="ad-slot ad-slot--content" aria-hidden="true"></div>
+
+        <h2>Accessibility &amp; SEO Best Practices</h2>
+        <div class="info-box info-box--warning">
+          <strong>Accessibility Note:</strong> Screen readers used by visually impaired people announce mathematical Unicode characters literally. For instance, <strong>𝗛𝗲𝗹𝗹𝗼</strong> is vocalized as <em>"Mathematical Sans-Serif Bold Capital H Mathematical Sans-Serif Bold Small e..."</em> rather than simply "Hello".
+        </div>
+        <p>To ensure high accessibility and strong SEO:</p>
+        <ul>
+          <li>Use fancy Unicode text primarily for short decorative phrases, usernames, and aesthetic flair.</li>
+          <li>Do not write entire educational paragraphs or critical website body copy in Unicode fonts, as search engine crawlers (Googlebot) may treat them as obscure symbols rather than plain searchable English words.</li>
+          <li>Always test your bio on both iOS and Android devices to verify symbol rendering.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Why doesn't fancy text work in some apps?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Fancy Unicode text relies on characters in supplementary Unicode planes (above U+FFFF). Some older apps, operating systems, or platforms don't render these characters and may display them as boxes (□) or question marks (?). Modern platforms like Instagram, Twitter/X, WhatsApp, and Discord fully support them. If a style doesn't show correctly, try a different style — Full Width and Small Caps use the Basic Multilingual Plane and have the best compatibility.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Is this copy-paste text or actual font changes?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                This is copy-paste text — real Unicode characters, not font changes. Each 'style' is actually a different set of Unicode characters that happen to look like styled letters. When you paste '𝐇𝐞𝐥𝐥𝐨' into Instagram, it stays bold on every device because those are bold mathematical Unicode characters, not a bold font. No special font needs to be installed anywhere.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Will this work on Instagram bio right now?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Yes! Instagram bios support most Unicode fancy text styles. Bold (𝗯𝗼𝗹𝗱), Italic (𝘪𝘵𝘢𝘭𝘪𝘤), Bold Italic, Script/Cursive, and Double Struck are the most popular and reliably render in Instagram bios and captions. Some extreme styles like Negative Circled may have inconsistent rendering depending on the viewer's device emoji font.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Does fancy text affect accessibility?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Yes, significantly. Screen readers used by blind and low-vision users read Unicode look-alike characters by their technical Unicode name rather than the intended letter. For example, 𝗛𝗲𝗹𝗹𝗼 in Mathematical Bold might be announced as 'mathematical bold capital H mathematical bold small e...' instead of 'Hello'. We recommend using fancy text only for decorative purposes in social media bios and avoiding it in informational content that needs to be accessible.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Are any Unicode styles blocked by social platforms?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Some platforms selectively filter Unicode ranges to prevent abuse. Instagram occasionally restricts certain supplementary plane characters in usernames to prevent impersonation. Full-width characters (Ａ, Ｂ, Ｃ...) are sometimes blocked in usernames on certain platforms because they can be used to spoof brand names. Twitter/X has restrictions on certain lookalike characters for the same reason. If a style is blocked in one field (like a username), it usually still works in bios and posts.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Related Tools -->
+        <h2>Related Tools</h2>
+        <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="../5-letter-words/" class="card" style="padding:20px;text-decoration:none;">
+            <div class="card__icon-box">
+              <i data-lucide="search" data-size="22"></i>
+            </div>
+            <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">5-Letter Word Finder</p>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Wordle solver &amp; letter filter</p>
+          </a>
+          <a href="../image-compressor/" class="card" style="padding:20px;text-decoration:none;">
+            <div class="card__icon-box">
+              <i data-lucide="image" data-size="22"></i>
+            </div>
+            <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Image Compressor</p>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Compress JPG/PNG to target KB</p>
+          </a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+            <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+            Kitvane
+          </a>
+          <p>Free browser-based utility tools. No account. No uploads. Just tools that work.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Tools</p>
+          <ul class="footer__links">
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../loan-calculator/">EMI Calculator</a></li>
+            <li><a href="../age-calculator/">Age Calculator</a></li>
+            <li><a href="../fancy-text/">Fancy Text</a></li>
+            <li><a href="../5-letter-words/">Word Finder</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a href="../privacy-policy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span class="footer-year">2026</span> Kitvane. All rights reserved.</span>
+        <span>Unicode transformations run 100% in your browser.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/lucide.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function initFancyText() {
+      const fontInput = document.getElementById('font-input');
+      const fontResults = document.getElementById('font-results');
+
+      // Unicode Exceptions Maps
+      const GOTHIC_UPPER_EXCEPTIONS = { C: 0x212D, H: 0x210C, I: 0x2111, R: 0x211C, Z: 0x2128 };
+      const SCRIPT_UPPER_EXCEPTIONS = { B: 0x212C, E: 0x2130, F: 0x2131, H: 0x210B, I: 0x2110, L: 0x2112, M: 0x2133, R: 0x211B };
+      const SCRIPT_LOWER_EXCEPTIONS = { e: 0x212F, g: 0x210A, o: 0x2134 };
+      const DOUBLE_STRUCK_UPPER_EXCEPTIONS = { C: 0x2102, H: 0x210D, N: 0x2115, P: 0x2119, Q: 0x211A, R: 0x211D, Z: 0x2124 };
+      const DSTRUCK_DIGITS = [0x1D7D8,0x1D7D9,0x1D7DA,0x1D7DB,0x1D7DC,0x1D7DD,0x1D7DE,0x1D7DF,0x1D7E0,0x1D7E1];
+      const BOLD_DIGITS = [0x1D7CE,0x1D7CF,0x1D7D0,0x1D7D1,0x1D7D2,0x1D7D3,0x1D7D4,0x1D7D5,0x1D7D6,0x1D7D7];
+      const SANS_DIGITS = [0x1D7E2,0x1D7E3,0x1D7E4,0x1D7E5,0x1D7E6,0x1D7E7,0x1D7E8,0x1D7E9,0x1D7EA,0x1D7EB];
+      const SANS_BOLD_DIGITS = [0x1D7EC,0x1D7ED,0x1D7EE,0x1D7EF,0x1D7F0,0x1D7F1,0x1D7F2,0x1D7F3,0x1D7F4,0x1D7F5];
+      const MONO_DIGITS = [0x1D7F6,0x1D7F7,0x1D7F8,0x1D7F9,0x1D7FA,0x1D7FB,0x1D7FC,0x1D7FD,0x1D7FE,0x1D7FF];
+
+      const SMALL_CAPS_MAP = {
+        a:0x1D00, b:0x0299, c:0x1D04, d:0x1D05, e:0x1D07, f:0xA730, g:0x0262, h:0x029C,
+        i:0x026A, j:0x1D0A, k:0x1D0B, l:0x029F, m:0x1D0D, n:0x0274, o:0x1D0F, p:0x1D18,
+        q:0x01EB, r:0x0280, s:0xA731, t:0x1D1B, u:0x1D1C, v:0x1D20, w:0x1D21, x:0x0078,
+        y:0x028F, z:0x1D22
+      };
+
+      const UPSIDE_DOWN_MAP = {
+        a:'ɐ', b:'q', c:'ɔ', d:'p', e:'ǝ', f:'ɟ', g:'ƃ', h:'ɥ', i:'ᴉ', j:'ɾ',
+        k:'ʞ', l:'l', m:'ɯ', n:'u', o:'o', p:'d', q:'b', r:'ɹ', s:'s', t:'ʇ',
+        u:'n', v:'ʌ', w:'ʍ', x:'x', y:'ʎ', z:'z',
+        A:'∀', B:'ᗺ', C:'Ɔ', D:'ᗡ', E:'Ǝ', F:'Ⅎ', G:'פ', H:'H', I:'I', J:'ſ',
+        K:'ʞ', L:'˥', M:'W', N:'N', O:'O', P:'Ԁ', Q:'Q', R:'ᴚ', S:'S', T:'┴',
+        U:'∩', V:'Λ', W:'M', X:'X', Y:'⅄', Z:'Z',
+        '1':'Ɩ','2':'ᄅ','3':'Ɛ','4':'ㄣ','5':'ϛ','6':'9','7':'ㄥ','8':'8','9':'6','0':'0',
+        '!':'¡','?':'¿','.':'˙',',':'\'','(' : ')', ')': '(', '[': ']', ']': '[', ' ': ' '
+      };
+
+      function makeTransform(upperBase, lowerBase, digits) {
+        return function(text) {
+          let out = '';
+          for (const ch of text) {
+            const code = ch.codePointAt(0);
+            if (code >= 65 && code <= 90) out += String.fromCodePoint(upperBase + (code - 65));
+            else if (code >= 97 && code <= 122) out += String.fromCodePoint(lowerBase + (code - 97));
+            else if (digits && code >= 48 && code <= 57) out += String.fromCodePoint(digits[code - 48]);
+            else out += ch;
+          }
+          return out;
+        };
+      }
+
+      const STYLES = [
+        { name: "Bold (Serif)", fn: makeTransform(0x1D400, 0x1D41A, BOLD_DIGITS) },
+        { name: "Italic (Serif)", fn: makeTransform(0x1D434, 0x1D44E, null) },
+        { name: "Bold Italic", fn: makeTransform(0x1D468, 0x1D482, null) },
+        {
+          name: "Script / Cursive",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(SCRIPT_UPPER_EXCEPTIONS[ch] || (0x1D49C + (code - 65)));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(SCRIPT_LOWER_EXCEPTIONS[ch] || (0x1D4B6 + (code - 97)));
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        { name: "Bold Script", fn: makeTransform(0x1D4D0, 0x1D4EA, null) },
+        {
+          name: "Gothic / Fraktur",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(GOTHIC_UPPER_EXCEPTIONS[ch] || (0x1D504 + (code - 65)));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x1D51E + (code - 97));
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        { name: "Bold Gothic", fn: makeTransform(0x1D56C, 0x1D586, null) },
+        {
+          name: "Double Struck",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(DOUBLE_STRUCK_UPPER_EXCEPTIONS[ch] || (0x1D538 + (code - 65)));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x1D552 + (code - 97));
+              else if (code >= 48 && code <= 57) out += String.fromCodePoint(DSTRUCK_DIGITS[code - 48]);
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        { name: "Sans-Serif", fn: makeTransform(0x1D5A0, 0x1D5BA, SANS_DIGITS) },
+        { name: "Sans Bold", fn: makeTransform(0x1D5D4, 0x1D5EE, SANS_BOLD_DIGITS) },
+        { name: "Sans Italic", fn: makeTransform(0x1D608, 0x1D622, null) },
+        { name: "Sans Bold Italic", fn: makeTransform(0x1D63C, 0x1D656, null) },
+        { name: "Monospace", fn: makeTransform(0x1D670, 0x1D68A, MONO_DIGITS) },
+        {
+          name: "Circled Letters",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(0x24B6 + (code - 65));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x24D0 + (code - 97));
+              else if (code >= 49 && code <= 57) out += String.fromCodePoint(0x2460 + (code - 49));
+              else if (code === 48) out += '⓪';
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        {
+          name: "Negative Circled",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(0x1F150 + (code - 65));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x1F150 + (code - 97));
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        {
+          name: "Squared Text",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(0x1F130 + (code - 65));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(0x1F130 + (code - 97));
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        {
+          name: "Full Width",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const code = ch.codePointAt(0);
+              if (code >= 65 && code <= 90) out += String.fromCodePoint(0xFF21 + (code - 65));
+              else if (code >= 97 && code <= 122) out += String.fromCodePoint(0xFF41 + (code - 97));
+              else if (code >= 48 && code <= 57) out += String.fromCodePoint(0xFF10 + (code - 48));
+              else if (code === 32) out += '\u3000';
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        {
+          name: "Small Caps",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              const lower = ch.toLowerCase();
+              if (SMALL_CAPS_MAP[lower]) out += String.fromCodePoint(SMALL_CAPS_MAP[lower]);
+              else out += ch;
+            }
+            return out;
+          }
+        },
+        {
+          name: "Upside Down",
+          fn: function(text) {
+            let out = '';
+            for (let i = text.length - 1; i >= 0; i--) {
+              const ch = text[i];
+              out += (UPSIDE_DOWN_MAP[ch] || ch);
+            }
+            return out;
+          }
+        },
+        {
+          name: "Strikethrough",
+          fn: function(text) {
+            let out = '';
+            for (const ch of text) {
+              out += ch + '\u0336';
+            }
+            return out;
+          }
+        }
+      ];
+
+      const fontCountLabel = document.getElementById('font-count-label');
+
+      // Initialize the 20 style cards once
+      function buildFontDOM() {
+        fontResults.innerHTML = '';
+        STYLES.forEach((style, idx) => {
+          const item = document.createElement('div');
+          item.className = 'font-item';
+          item.innerHTML = `
+            <span class="font-item__label">${style.name}</span>
+            <div class="font-item__preview" id="prev-${idx}"></div>
+            <button class="font-item__copy" data-idx="${idx}" aria-label="Copy ${style.name}">Copy</button>
+          `;
+          fontResults.appendChild(item);
+        });
+
+        // Single click delegation for copy buttons
+        fontResults.addEventListener('click', function(e) {
+          const btn = e.target.closest('.font-item__copy');
+          if (!btn) return;
+          const idx = btn.getAttribute('data-idx');
+          const previewEl = document.getElementById('prev-' + idx);
+          const txt = previewEl.getAttribute('data-text') || '';
+
+          if (!txt.trim()) {
+            window.showToast('⚠️ Type some text above first!');
+            return;
+          }
+
+          window.copyToClipboard(txt, `✓ "${STYLES[idx].name}" copied to clipboard!`);
+          const originalText = btn.textContent;
+          btn.textContent = '✓ Copied';
+          setTimeout(() => { btn.textContent = originalText; }, 1600);
+        });
+      }
+
+      function updateFonts() {
+        const val = fontInput.value;
+        const isEmpty = val.length === 0;
+
+        if (isEmpty) {
+          fontCountLabel.textContent = '0 Characters · 0 Words · 20 Styles Ready';
+          STYLES.forEach((_, idx) => {
+            const preview = document.getElementById('prev-' + idx);
+            preview.setAttribute('data-text', '');
+            preview.innerHTML = '<span style="color:var(--text-muted);font-style:italic;font-size:0.95rem;">Type something above to see preview...</span>';
+          });
+          return;
+        }
+
+        const words = val.trim().split(/\s+/).filter(Boolean).length;
+        fontCountLabel.textContent = `${val.length} Characters · ${words} Words · 20 Styles Ready`;
+
+        STYLES.forEach((style, idx) => {
+          const transformed = style.fn(val);
+          const preview = document.getElementById('prev-' + idx);
+          preview.setAttribute('data-text', transformed);
+          preview.textContent = transformed;
+        });
+      }
+
+      buildFontDOM();
+      updateFonts();
+      fontInput.addEventListener('input', updateFonts);
+
+      document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>

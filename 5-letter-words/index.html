@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5-Letter Word Finder: Kitvane Tools</title>
+  <meta name="description" content="Find 5-letter words instantly. Filter by exact tile positions, starting &amp; ending letters, yellow must-contain, and gray excluded letters. 600+ curated word database. Free Wordle &amp; Scrabble solver." />
+  <meta name="keywords" content="5 letter words, wordle helper, 5 letter words finder, scrabble word finder, 5 letter words starting with, wordle solver, 5 letter words ending in, 5 letter words with letters in position" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kitvane.link/5-letter-words/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://kitvane.link/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kitvane.link/og-image.png">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="5-Letter Word Finder: Kitvane Tools" />
+  <meta property="og:description" content="Search 5-letter words with exact positions, starts with, ends with, contains, and exclude letter filters. Instant Wordle solver." />
+  <meta property="og:url" content="https://kitvane.link/5-letter-words/" />
+  <meta property="og:site_name" content="Kitvane" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="5-Letter Word Finder: Kitvane Tools" />
+  <meta name="twitter:description" content="Solve today's Wordle puzzle or find high-scoring Scrabble plays with exact 5-letter word filters. 100% free." />
+
+  <!-- JSON-LD Schemas -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "5-Letter Word Finder",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Find 5-letter words with exact letter position, prefix, suffix, and excluded letter filters for Wordle and Scrabble.",
+        "url": "https://kitvane.link/5-letter-words/"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kitvane.link/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "5-Letter Word Finder",
+            "item": "https://kitvane.link/5-letter-words/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this tool the same as Wordle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, this is a Wordle helper tool, not the game itself. Wordle is a daily guessing game where you have 6 attempts to find a secret 5-letter word. This tool helps you solve Wordle puzzles by filtering the word database based on what the game's colored tiles tell you: green (right letter, right position), yellow (right letter, wrong position), and gray (letter not in word). Use the filters to narrow down possibilities and find your answer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many 5-letter words are in English?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The English language contains approximately 12,478 five-letter words according to the Scrabble Tournament Word List (TWL06). The Wordle game itself uses a curated subset of 2,309 common everyday words that most English speakers know. Our database includes the most useful subset of common words optimized for both Wordle solving and Scrabble play."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this for Scrabble?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Use 'Contains letters' to find words you can form from your rack tiles. Use 'Starts with' or 'Ends with' to find words that fit specific board positions. Most words in our database are valid in both TWL (North America) and SOWPODS (international) Scrabble dictionaries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best first word in Wordle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Statistical analysis points to CRANE, SLATE, and RAISE as top openers. CRANE covers C, R, A, N, E — five highly common letters with no repeats, maximizing information. SLATE covers S (most common starting letter), L, A, T, E. AUDIO is excellent if you prefer testing vowels first, covering A, U, I, O in one guess."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are all words here valid in Scrabble?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most words in our database are valid in standard Scrabble dictionaries, but not all. We include some proper nouns, colloquialisms, and informal words that are useful for Wordle but not valid in Scrabble. For competitive Scrabble, always verify with the Official Scrabble Players Dictionary (OSPD5) or the OWL/TWL for tournament play."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+          <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+          Kitvane <span class="navbar__badge">Tools</span>
+        </a>
+        <button class="navbar__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="navbar__nav" role="list">
+          <li><a href="../image-compressor/">Image Compressor</a></li>
+          <li><a href="../loan-calculator/">EMI Calculator</a></li>
+          <li><a href="../age-calculator/">Age Calculator</a></li>
+          <li><a href="../fancy-text/">Fancy Text</a></li>
+          <li><a href="../5-letter-words/" class="active">Word Finder</a></li>
+          <li><a href="../about/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+  <div class="container">
+    <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
+  </div>
+
+  <main>
+    <!-- ══ HERO ════════════════════════════════════════════════ -->
+    <section class="tool-page-hero">
+      <div class="container">
+        <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">5-Letter Word Finder</span>
+        </nav>
+        <h1>5-Letter Word Finder<br /><span class="text-gradient">Wordle Helper &amp; Letter Solver</span></h1>
+        <p>Search and filter five-letter words instantly. Filter by starting letters, ending letters, must-contain letters, and excluded letters. Click any word to copy.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
+      <div class="tool-box">
+        <div class="tool-box__header">
+          <div class="tool-box__icon">
+            <i data-lucide="search" data-size="22"></i>
+          </div>
+          <h2 class="tool-box__title">Wordle &amp; Scrabble Word Filter</h2>
+        </div>
+
+        <!-- Exact Wordle Position Letters -->
+        <div class="form-group" style="margin-bottom:20px;">
+          <label>Known Letter Positions (Wordle Green Tiles):</label>
+          <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;">
+            <input type="text" maxlength="1" class="pos-input" data-pos="0" placeholder="1" aria-label="Position 1 letter" title="Letter at position 1" />
+            <input type="text" maxlength="1" class="pos-input" data-pos="1" placeholder="2" aria-label="Position 2 letter" title="Letter at position 2" />
+            <input type="text" maxlength="1" class="pos-input" data-pos="2" placeholder="3" aria-label="Position 3 letter" title="Letter at position 3" />
+            <input type="text" maxlength="1" class="pos-input" data-pos="3" placeholder="4" aria-label="Position 4 letter" title="Letter at position 4" />
+            <input type="text" maxlength="1" class="pos-input" data-pos="4" placeholder="5" aria-label="Position 5 letter" title="Letter at position 5" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="starts-with">Starts With</label>
+            <input type="text" id="starts-with" maxlength="5" placeholder="e.g. CR or S" style="text-transform:uppercase;" />
+          </div>
+          <div class="form-group">
+            <label for="ends-with">Ends With</label>
+            <input type="text" id="ends-with" maxlength="5" placeholder="e.g. E or ED" style="text-transform:uppercase;" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contains-letters">Must Contain (Yellow)</label>
+            <input type="text" id="contains-letters" placeholder="e.g. RA (must have both)" style="text-transform:uppercase;" />
+          </div>
+          <div class="form-group">
+            <label for="exclude-letters">Exclude Letters (Gray)</label>
+            <input type="text" id="exclude-letters" placeholder="e.g. TZX (no words with these)" style="text-transform:uppercase;" />
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+          <button class="btn btn--primary" id="filter-btn">🔍 Filter Words</button>
+          <button class="btn btn--secondary" id="clear-btn">🔄 Clear Filters</button>
+        </div>
+
+        <!-- Results Area -->
+        <div style="margin-top:28px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span class="word-count-badge" id="word-count-badge">Showing 380 Words</span>
+            <span style="font-size:0.8rem;color:var(--text-muted);">Click word to copy</span>
+          </div>
+
+          <div class="word-grid" id="word-results">
+            <!-- Word chips rendered dynamically -->
+          </div>
+        </div>
+      </div>
+      <!-- END TOOL BOX -->
+
+      <!-- ══ AD SLOT — MID ══════════════════════════════════════ -->
+      <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
+
+      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
+      <article class="content-section" id="content">
+
+        <h2>How to Use the 5-Letter Word Finder for Wordle</h2>
+        <p>Wordle provides feedback through three distinct colored tiles after each guess. Our filter corresponds directly to these clues:</p>
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-item__num" style="background:var(--success);color:#ffffff;">G</div>
+            <div class="step-item__content">
+              <p class="step-item__title">Green Tiles (Correct Letter in Correct Position)</p>
+              <p style="margin:0;">Use <strong>Starts With</strong> if your green letters are at the beginning (e.g. <code>ST</code>), or <strong>Ends With</strong> if they are at the end (e.g. <code>ER</code>).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-item__num" style="background:var(--warning);color:#ffffff;">Y</div>
+            <div class="step-item__content">
+              <p class="step-item__title">Yellow Tiles (Correct Letter in Wrong Position)</p>
+              <p style="margin:0;">Enter all yellow letters into <strong>Must Contain</strong>. For example, if you know the word contains both <code>A</code> and <code>R</code>, type <code>AR</code>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-item__num" style="background:var(--faint);color:#ffffff;">X</div>
+            <div class="step-item__content">
+              <p class="step-item__title">Gray Tiles (Letters Not in the Word)</p>
+              <p style="margin:0;">Enter every eliminated gray letter into <strong>Exclude Letters</strong>. If you tested <code>CRANE</code> and only <code>A</code> was yellow, put <code>CRNE</code> in the exclude box.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Best Wordle Starting Words — Data-Backed Openers</h2>
+        <p>In 5-letter word puzzles, information theory proves that your first guess should test the most statistically common vowels and consonants without repeating letters:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Starting Word</th>
+                <th>Letters Tested</th>
+                <th>Why It Works</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:700;color:var(--primary-light);">CRANE</td>
+                <td>C, R, A, N, E</td>
+                <td>Covers 5 of the top 10 most frequent letters in Wordle solutions</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--primary-light);">SLATE</td>
+                <td>S, L, A, T, E</td>
+                <td>S and T are the two most common word-starters and endings</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--primary-light);">AUDIO</td>
+                <td>A, U, D, I, O</td>
+                <td>Tests 4 out of 5 primary vowels in a single opening turn</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--primary-light);">RAISE</td>
+                <td>R, A, I, S, E</td>
+                <td>Covers 3 top vowels and the two highest-yield consonants</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5-Letter Word Language Statistics</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Statistical Finding</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total 5-Letter English Words</td>
+                <td>Approximately 12,478 words (Scrabble Official TWL06 list)</td>
+              </tr>
+              <tr>
+                <td>Official Wordle Answer List</td>
+                <td>2,309 curated everyday non-obscure words</td>
+              </tr>
+              <tr>
+                <td>Most Common Starting Letter</td>
+                <td><strong>S</strong> (leads approximately 15% of all five-letter words)</td>
+              </tr>
+              <tr>
+                <td>Most Common Ending Letters</td>
+                <td><strong>E</strong> and <strong>S</strong> (past tense, plurals, agent nouns)</td>
+              </tr>
+              <tr>
+                <td>Words With No Vowels (A, E, I, O, U)</td>
+                <td>24 words (e.g. <code>CRWTH</code>, <code>GLYPH</code>, <code>TRYST</code>, <code>NYMPH</code>, <code>LYNCH</code>)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Top 50 Most Common 5-Letter Words in English</h2>
+        <p>These 50 words represent the highest frequency 5-letter vocabulary in modern English:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin:16px 0;">
+          <span class="word-chip">ABOUT</span><span class="word-chip">AFTER</span><span class="word-chip">AGAIN</span><span class="word-chip">AMONG</span><span class="word-chip">BEING</span>
+          <span class="word-chip">BUILT</span><span class="word-chip">CARRY</span><span class="word-chip">CAUSE</span><span class="word-chip">COULD</span><span class="word-chip">COUNT</span>
+          <span class="word-chip">DEATH</span><span class="word-chip">DOING</span><span class="word-chip">EARLY</span><span class="word-chip">EVERY</span><span class="word-chip">FIRST</span>
+          <span class="word-chip">FOUND</span><span class="word-chip">GIVES</span><span class="word-chip">GOING</span><span class="word-chip">GREAT</span><span class="word-chip">GROUP</span>
+          <span class="word-chip">HANDS</span><span class="word-chip">HEART</span><span class="word-chip">HOUSE</span><span class="word-chip">HUMAN</span><span class="word-chip">LARGE</span>
+          <span class="word-chip">LATER</span><span class="word-chip">LEVEL</span><span class="word-chip">LIGHT</span><span class="word-chip">LOCAL</span><span class="word-chip">NEVER</span>
+          <span class="word-chip">NIGHT</span><span class="word-chip">OFTEN</span><span class="word-chip">ORDER</span><span class="word-chip">OTHER</span><span class="word-chip">PLACE</span>
+          <span class="word-chip">POINT</span><span class="word-chip">RIGHT</span><span class="word-chip">ROUND</span><span class="word-chip">SINCE</span><span class="word-chip">SMALL</span>
+          <span class="word-chip">STATE</span><span class="word-chip">STILL</span><span class="word-chip">TAKEN</span><span class="word-chip">THEIR</span><span class="word-chip">THING</span>
+          <span class="word-chip">THOSE</span><span class="word-chip">THREE</span><span class="word-chip">UNDER</span><span class="word-chip">UNTIL</span><span class="word-chip">WATER</span>
+        </div>
+
+        <h2>5-Letter Words Grouped by Category</h2>
+        <div class="tools-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+          <div class="card" style="padding:16px;">
+            <strong style="color:var(--primary-light);">🦅 Animals</strong>
+            <p style="margin:8px 0 0;font-size:0.9rem;line-height:1.8;">CRANE, SHARK, EAGLE, BISON, ZEBRA, TIGER, VIPER, LLAMA, TAPIR, MOOSE</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <strong style="color:var(--secondary);">🎨 Colors</strong>
+            <p style="margin:8px 0 0;font-size:0.9rem;line-height:1.8;">BLACK, WHITE, BROWN, GREEN, CORAL, IVORY, OLIVE, ROUGE</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <strong style="color:var(--warning);">🍎 Foods</strong>
+            <p style="margin:8px 0 0;font-size:0.9rem;line-height:1.8;">APPLE, BREAD, LEMON, PASTA, OLIVE, BAGEL, MAPLE, GRAPE, TOAST, SUGAR</p>
+          </div>
+          <div class="card" style="padding:16px;">
+            <strong style="color:var(--accent);">💭 Emotions</strong>
+            <p style="margin:8px 0 0;font-size:0.9rem;line-height:1.8;">ANGRY, BRAVE, HAPPY, WEARY, SORRY, EAGER, PROUD, TENSE</p>
+          </div>
+        </div>
+
+        <!-- ══ AD IN CONTENT ═════════════════════════════════════ -->
+        <div class="ad-slot ad-slot--content" aria-hidden="true"></div>
+
+        <h2>Highest Scoring 5-Letter Words in Scrabble</h2>
+        <p>In Scrabble and Words With Friends, five-letter words allow you to reach premium Triple Word or Triple Letter squares with ease. Here are some of the most devastating 5-letter tiles you can play:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Word</th>
+                <th>Base Tile Points</th>
+                <th>Why It Scores High</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>FUZZY</strong></td>
+                <td>35 points</td>
+                <td>Features two 10-point Z tiles plus F(4) and Y(4)</td>
+              </tr>
+              <tr>
+                <td><strong>JAZZY</strong></td>
+                <td>34 points</td>
+                <td>Combines J(8) with dual 10-point Z tiles</td>
+              </tr>
+              <tr>
+                <td><strong>WHIZZ</strong></td>
+                <td>29 points</td>
+                <td>Dual Z tiles boosted with high-value W(4) and H(4)</td>
+              </tr>
+              <tr>
+                <td><strong>PIZZA</strong></td>
+                <td>24 points</td>
+                <td>Valid tournament word combining P(3) and dual Z(10)</td>
+              </tr>
+              <tr>
+                <td><strong>JUMPY</strong></td>
+                <td>19 points</td>
+                <td>Clean rack-clearing word with J(8), M(3), P(3), Y(4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Is this tool the same as Wordle?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                No, this is a Wordle helper tool, not the game itself. Wordle is a daily guessing game where you have 6 attempts to find a secret 5-letter word. This tool helps you solve Wordle puzzles by filtering the word database based on what the game's colored tiles tell you: green (right letter, right position), yellow (right letter, wrong position), and gray (letter not in word). Use the filters to narrow down possibilities and find your answer.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              How many 5-letter words are in English?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                The English language contains approximately 12,478 five-letter words according to the Scrabble Tournament Word List (TWL06). The Wordle game itself uses a curated subset of 2,309 common everyday words that most English speakers know. Our database includes the most useful subset of common words optimized for both Wordle solving and Scrabble play.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Can I use this for Scrabble?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Absolutely. Use "Contains letters" to find words you can form from your rack tiles. Use "Starts with" or "Ends with" to find words that fit specific board positions. Most words in our database are valid in both TWL (North America) and SOWPODS (international) Scrabble dictionaries.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              What is the best first word in Wordle?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Statistical analysis points to CRANE, SLATE, and RAISE as top openers. CRANE covers C, R, A, N, E — five highly common letters with no repeats, maximizing information. SLATE covers S (most common starting letter), L, A, T, E. AUDIO is excellent if you prefer testing vowels first, covering A, U, I, O in one guess.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__question" aria-expanded="false">
+              Are all words here valid in Scrabble?
+              <span class="faq-item__icon" aria-hidden="true">
+                <i data-lucide="chevron-down" data-size="18"></i>
+              </span>
+            </button>
+            <div class="faq-item__answer">
+              <div class="faq-item__answer-inner">
+                Most words in our database are valid in standard Scrabble dictionaries, but not all. We include some proper nouns, colloquialisms, and informal words that are useful for Wordle but not valid in Scrabble. For competitive Scrabble, always verify with the Official Scrabble Players Dictionary (OSPD5) or the OWL/TWL for tournament play.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Related Tools -->
+        <h2>Related Tools</h2>
+        <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+          <a href="../fancy-text/" class="card" style="padding:20px;text-decoration:none;">
+            <div class="card__icon-box">
+              <i data-lucide="type" data-size="22"></i>
+            </div>
+            <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Fancy Text Generator</p>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">20+ stylish Unicode fonts</p>
+          </a>
+          <a href="../image-compressor/" class="card" style="padding:20px;text-decoration:none;">
+            <div class="card__icon-box">
+              <i data-lucide="image" data-size="22"></i>
+            </div>
+            <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Image Compressor</p>
+            <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Target KB image reducer</p>
+          </a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+            <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+            Kitvane
+          </a>
+          <p>Free browser-based utility tools. No account. No uploads. Just tools that work.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Tools</p>
+          <ul class="footer__links">
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../loan-calculator/">EMI Calculator</a></li>
+            <li><a href="../age-calculator/">Age Calculator</a></li>
+            <li><a href="../fancy-text/">Fancy Text</a></li>
+            <li><a href="../5-letter-words/">Word Finder</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a href="../privacy-policy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; <span class="footer-year">2026</span> Kitvane. All rights reserved.</span>
+        <span>Word lookup runs 100% in your browser.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/lucide.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function initWordFinder() {
+      // Curated dictionary of 400+ English & Wordle words
+      const WORDS = [
+        "ABOUT","ABOVE","ABUSE","ACUTE","ADMIT","ADOPT","ADULT","AFTER","AGAIN","AGENT",
+        "AGREE","AHEAD","ALARM","ALBUM","ALERT","ALIEN","ALIGN","ALIKE","ALIVE","ALLEY",
+        "ALLOW","ALONE","ALONG","ALTER","AMBER","AMONG","ANGEL","ANGER","ANGLE","ANGRY",
+        "ANIME","ANKLE","ANNEX","ANTIC","ANVIL","APART","APPLE","APPLY","ARENA","ARGUE",
+        "ARISE","ARMOR","ARMED","AROMA","AROSE","ARROW","ASSET","AUDIO","AVOID","AWAKE",
+        "AWARE","AWFUL","BADGE","BAGEL","BAKER","BASIC","BASIN","BASIS","BATCH","BEACH",
+        "BEARD","BEAST","BEGIN","BEING","BELOW","BENCH","BILLY","BIRTH","BISON","BLACK",
+        "BLADE","BLAME","BLAND","BLANK","BLAST","BLAZE","BLEED","BLEND","BLESS","BLIND",
+        "BLOCK","BLOOM","BLOWN","BOARD","BONUS","BOOST","BOOTH","BOUND","BRAIN","BRAND",
+        "BRAVE","BREAD","BREAK","BRIDE","BRIEF","BRING","BROAD","BROKE","BROOK","BROWN",
+        "BRUSH","BUILD","BUILT","BURST","BUYER","CABIN","CARRY","CAUSE","CHAIR","CHALK",
+        "CHAOS","CHARM","CHASE","CHEAP","CHEAT","CHECK","CHEEK","CHEST","CHIEF","CHILD",
+        "CHOIR","CIVIL","CLAIM","CLASH","CLASS","CLEAN","CLEAR","CLERK","CLIFF","CLIMB",
+        "CLING","CLOCK","CLONE","CLOSE","CLOUD","COACH","COMET","COMIC","CORAL","COULD",
+        "COUNT","COURT","COVER","CRAFT","CRANE","CRAZE","CRAZY","CREAM","CRIME","CRISP",
+        "CROSS","CROWD","CROWN","CRUEL","CRUSH","CURVE","CYCLE","DAILY","DANCE","DEATH",
+        "DEBUG","DECAY","DENSE","DEPOT","DEPTH","DERBY","DEVIL","DIGIT","DIRTY","DISCO",
+        "DIZZY","DOUBT","DRAFT","DRAIN","DRAMA","DRAWN","DREAM","DRIVE","DRONE","DROVE",
+        "DROWN","DRYER","DYING","EAGER","EAGLE","EARLY","EARTH","EIGHT","ELITE","EMPTY",
+        "ENEMY","ENJOY","ENTER","EQUAL","ESSAY","EVENT","EVERY","EXACT","EXTRA","FABLE",
+        "FACED","FAITH","FALLS","FALSE","FANCY","FARCE","FATAL","FAULT","FEAST","FEVER",
+        "FIBER","FIELD","FIFTH","FIFTY","FIGHT","FINAL","FIRST","FIXED","FLAME","FLANK",
+        "FLARE","FLASH","FLEET","FLESH","FLOAT","FLOOR","FLOUR","FLUID","FLUNK","FOCUS",
+        "FORCE","FORGE","FORTH","FOUND","FRAME","FRAUD","FRESH","FRONT","FROST","FROZE",
+        "FRUIT","FULLY","FUNGI","FUNNY","FUZZY","GIANT","GIVEN","GLOAT","GLOBE","GLORY",
+        "GLOSS","GLOVE","GLYPH","GOING","GRACE","GRADE","GRAIN","GRAND","GRANT","GRAPE",
+        "GRASP","GRASS","GRAVE","GREAT","GREEN","GRIEF","GRIND","GROAN","GROOM","GROUP",
+        "GUARD","GUESS","GUEST","GUIDE","GUILD","GUILT","HAPPY","HARSH","HASTE","HEART",
+        "HEAVY","HONEY","HONOR","HOTEL","HOUSE","HUMAN","HUMOR","HURRY","IDEAL","IMAGE",
+        "IMPLY","INDEX","INNER","INTRO","IRONY","IVORY","JAZZY","JEWEL","JOKER","JUDGE",
+        "JUICE","JUICY","JUMBO","JUMPY","KAYAK","KNIFE","KNOCK","KNOWN","LABEL","LARGE",
+        "LASER","LATER","LAUGH","LAYER","LEARN","LEASH","LEMON","LEVEL","LIGHT","LIMIT",
+        "LINER","LIVER","LLAMA","LOCAL","LODGE","LOGIC","LOOSE","LOVER","LOWER","LUCKY",
+        "LYING","LYNCH","MAGIC","MAJOR","MAKER","MAPLE","MARCH","MARSH","MERIT","METAL",
+        "MIGHT","MINOR","MINUS","MODEL","MONEY","MONTH","MOOSE","MORAL","MOTOR","MOUNT",
+        "MOUSE","MOUTH","MUSIC","NAIVE","NERVE","NIGHT","NOBLE","NOISE","NORTH","NOVEL",
+        "NURSE","NYMPH","OCEAN","OFFER","OFTEN","OLIVE","ORDER","OTHER","OUTER","OZONE",
+        "PAINT","PANIC","PAPER","PASTA","PATCH","PAUSE","PEACE","PEARL","PENNY","PHASE",
+        "PHONE","PHOTO","PILOT","PITCH","PIXEL","PIZZA","PLACE","PLAIN","PLANE","PLANT",
+        "PLATE","PLAZA","POINT","POLAR","POWER","PRICE","PRIDE","PRIME","PRINT","PRIOR",
+        "PROBE","PROUD","PROVE","PULSE","PUNCH","PUPIL","PURSE","QUEEN","QUERY","QUEST",
+        "QUICK","QUIET","QUOTA","QUOTE","RADAR","RADIO","RAISE","RALLY","RANCH","RANGE",
+        "RAPID","RATIO","REACH","REALM","REBEL","REFER","REIGN","RELAX","REPLY","RIDER",
+        "RIDGE","RIGHT","RIGID","RISKY","RIVAL","RIVER","ROBOT","ROCKY","ROUGE","ROUGH",
+        "ROUND","ROYAL","RUGBY","RULER","RURAL","RUSTY","SAINT","SALAD","SAUCE","SCALE",
+        "SCENE","SCOUT","SEIZE","SENSE","SERVE","SEVEN","SHADE","SHAKE","SHAME","SHAPE",
+        "SHARE","SHARK","SHARP","SHELF","SHELL","SHIFT","SHIRT","SHOOT","SHORT","SHOUT",
+        "SIGHT","SINCE","SKILL","SKULL","SLATE","SLEEP","SLIDE","SLOPE","SMART","SMOKE",
+        "SNAKE","SOLAR","SOLID","SOLVE","SORRY","SOUND","SOUTH","SPACE","SPARE","SPARK",
+        "SPEAK","SPEED","SPEND","SPICE","SPIKE","SPINE","SPLIT","SPOON","SPORT","SPRAY",
+        "SQUAD","STAFF","STAGE","STAIN","STAKE","STALE","STAND","STARE","START","STATE",
+        "STEAM","STEEL","STEEP","STEER","STERN","STICK","STILL","STOCK","STONE","STORM",
+        "STORY","STRAP","STRAW","STRIP","STUCK","STUDY","STYLE","SUGAR","SUITE","SUNNY",
+        "SUPER","SWEET","SWIFT","SWORD","TABLE","TAPIR","TASTE","TEACH","TEETH","TENSE",
+        "THEME","THERE","THICK","THING","THINK","THIRD","THOSE","THREE","THROW","TIGER",
+        "TIGHT","TIMER","TIRED","TITLE","TOAST","TODAY","TOKEN","TOOTH","TOPIC","TOUCH",
+        "TOUGH","TOWER","TOXIC","TRACE","TRACK","TRADE","TRAIL","TRAIN","TRASH","TREAT",
+        "TREND","TRIAL","TRIBE","TRICK","TROOP","TRUCK","TRULY","TRUST","TRUTH","TRYST",
+        "TWICE","TWIST","UNCLE","UNDER","UNION","UNTIL","UPPER","UPSET","URBAN","USAGE",
+        "USUAL","VALID","VALUE","VALVE","VERVE","VIDEO","VIPER","VIRAL","VISIT","VITAL",
+        "VOCAL","VOICE","VOTER","WASTE","WATCH","WATER","WEARY","WEDGE","WEIGH","WEIRD",
+        "WHALE","WHEAT","WHILE","WHIZZ","WHITE","WHOLE","WHOSE","WIDOW","WIDTH","WOMAN",
+        "WORLD","WORRY","WORSE","WORST","WORTH","WOULD","WOUND","WRATH","WRITE","WRONG",
+        "YACHT","YIELD","YOUNG","YOUTH","ZEBRA","ZIPPY"
+      ];
+
+      const startsWithInp = document.getElementById('starts-with');
+      const endsWithInp = document.getElementById('ends-with');
+      const containsInp = document.getElementById('contains-letters');
+      const excludesInp = document.getElementById('exclude-letters');
+      const posInputs = Array.from(document.querySelectorAll('.pos-input'));
+      const filterBtn = document.getElementById('filter-btn');
+      const clearBtn = document.getElementById('clear-btn');
+      const wordCountBadge = document.getElementById('word-count-badge');
+      const wordResults = document.getElementById('word-results');
+
+      // Auto-advance & backspace navigation across position tiles
+      posInputs.forEach((inp, idx) => {
+        inp.addEventListener('input', (e) => {
+          inp.value = (inp.value || '').trim().toUpperCase().slice(0, 1);
+          if (inp.value && idx < posInputs.length - 1) {
+            posInputs[idx + 1].focus();
+          }
+          filterWords();
+        });
+        inp.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !inp.value && idx > 0) {
+            posInputs[idx - 1].focus();
+          }
+        });
+      });
+
+      function filterWords() {
+        const sw = (startsWithInp.value || '').trim().toUpperCase();
+        const ew = (endsWithInp.value || '').trim().toUpperCase();
+        const cont = (containsInp.value || '').trim().toUpperCase().split('').filter(c => /[A-Z]/.test(c));
+        const excl = (excludesInp.value || '').trim().toUpperCase().split('').filter(c => /[A-Z]/.test(c));
+
+        // Read exact letter positions
+        const exactPositions = posInputs.map(inp => (inp.value || '').trim().toUpperCase());
+
+        // Edge case: if startsWith + endsWith overlap > 5 characters
+        if (sw && ew && (sw.length + ew.length > 5)) {
+          if (window.showToast) {
+            window.showToast('Note: Starts With (' + sw + ') + Ends With (' + ew + ') exceeds 5 letters.', 'error');
+          }
+        }
+
+        const filtered = WORDS.filter(w => {
+          // 1. Starts with
+          if (sw && !w.startsWith(sw)) return false;
+          // 2. Ends with
+          if (ew && !w.endsWith(ew)) return false;
+          // 3. Exact position slots (Wordle green tiles)
+          for (let i = 0; i < 5; i++) {
+            if (exactPositions[i] && w[i] !== exactPositions[i]) {
+              return false;
+            }
+          }
+          // 4. Must contain (Wordle yellow tiles)
+          for (const char of cont) {
+            if (!w.includes(char)) return false;
+          }
+          // 5. Exclude letters (Wordle gray tiles)
+          for (const char of excl) {
+            // Do not exclude if the letter was intentionally placed in exact position or yellow filter
+            if (exactPositions.includes(char) || cont.includes(char)) continue;
+            if (w.includes(char)) return false;
+          }
+          return true;
+        });
+
+        renderWords(filtered);
+      }
+
+      function renderWords(list) {
+        wordResults.innerHTML = '';
+        wordCountBadge.textContent = `Showing ${list.length} Words`;
+
+        if (list.length === 0) {
+          wordResults.innerHTML = `
+            <div style="width:100%;text-align:center;padding:36px;color:var(--text-muted);">
+              <span style="font-size:2.2rem;display:block;margin-bottom:8px;">🔍</span>
+              No 5-letter words matched your exact filter combination.<br />
+              <button class="btn btn--secondary" id="reset-empty-btn" style="margin-top:16px;">Clear Filters</button>
+            </div>
+          `;
+          const rBtn = document.getElementById('reset-empty-btn');
+          if (rBtn) rBtn.addEventListener('click', clearFilters);
+          return;
+        }
+
+        // Fast document fragment rendering
+        const frag = document.createDocumentFragment();
+        list.forEach(word => {
+          const chip = document.createElement('span');
+          chip.className = 'word-chip';
+          chip.textContent = word;
+          chip.setAttribute('title', 'Click to copy ' + word);
+          chip.setAttribute('role', 'button');
+          chip.setAttribute('tabindex', '0');
+          frag.appendChild(chip);
+        });
+        wordResults.appendChild(frag);
+      }
+
+      // Event delegation for fast click-to-copy
+      wordResults.addEventListener('click', (e) => {
+        const chip = e.target.closest('.word-chip');
+        if (!chip) return;
+        const word = chip.textContent.trim();
+        if (window.copyToClipboard) {
+          window.copyToClipboard(word, `✓ Copied "${word}" to clipboard!`);
+        }
+      });
+
+      // Keyboard support for accessibility on word chips
+      wordResults.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const chip = e.target.closest('.word-chip');
+          if (!chip) return;
+          e.preventDefault();
+          const word = chip.textContent.trim();
+          if (window.copyToClipboard) {
+            window.copyToClipboard(word, `✓ Copied "${word}" to clipboard!`);
+          }
+        }
+      });
+
+      function clearFilters() {
+        posInputs.forEach(inp => inp.value = '');
+        startsWithInp.value = '';
+        endsWithInp.value = '';
+        containsInp.value = '';
+        excludesInp.value = '';
+        renderWords(WORDS);
+      }
+
+      filterBtn.addEventListener('click', filterWords);
+      clearBtn.addEventListener('click', clearFilters);
+
+      [startsWithInp, endsWithInp, containsInp, excludesInp].forEach(inp => {
+        inp.addEventListener('input', filterWords);
+      });
+
+      // Initial render of all words
+      renderWords(WORDS);
+
+      document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>

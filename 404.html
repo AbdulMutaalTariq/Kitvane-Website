@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found: Kitvane Tools</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://kitvane.link/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kitvane.link/og-image.png">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="robots" content="noindex, follow" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <!-- ══ SCROLL PROGRESS & MOUSE AMBIENT PULSE ═══════════════════ -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="./" class="navbar__logo" aria-label="Kitvane Home">
+          <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='./logo-mark.svg'" />
+          Kitvane <span class="navbar__badge">Tools</span>
+        </a>
+
+        <button class="navbar__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="navbar__nav" role="list">
+          <li><a href="image-compressor/">Image Compressor</a></li>
+          <li><a href="loan-calculator/">EMI Calculator</a></li>
+          <li><a href="age-calculator/">Age Calculator</a></li>
+          <li><a href="fancy-text/">Fancy Text</a></li>
+          <li><a href="5-letter-words/">Word Finder</a></li>
+          <li><a href="about/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 80px 0 60px;">
+      <div class="container">
+        <div class="reveal-fade-up">
+          <div class="hero__badge">
+            <i data-lucide="zap" data-size="14"></i>
+            Error 404
+          </div>
+          <h1 class="hero__title">
+            Page Not Found<br />
+            <span class="text-gradient">Lost in the Tools?</span>
+          </h1>
+          <p class="hero__subtitle">
+            The page you are looking for doesn't exist or may have been moved. Jump back to our free browser utilities below.
+          </p>
+          <div class="hero__actions">
+            <a href="./" class="btn btn--primary">
+              Back to Home
+              <i data-lucide="arrow-right" data-size="16"></i>
+            </a>
+            <a href="contact/" class="btn btn--secondary">
+              Contact Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="./" class="navbar__logo" style="font-size:1.2rem;">
+            <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='./logo-mark.svg'" />
+            Kitvane
+          </a>
+          <p>Free browser-based utility tools. No account. No uploads. Just tools that work.</p>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Tools</p>
+          <ul class="footer__links">
+            <li><a href="image-compressor/">Image Compressor</a></li>
+            <li><a href="loan-calculator/">EMI Calculator</a></li>
+            <li><a href="age-calculator/">Age Calculator</a></li>
+            <li><a href="fancy-text/">Fancy Text</a></li>
+            <li><a href="5-letter-words/">Word Finder</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a href="about/">About Us</a></li>
+            <li><a href="contact/">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a href="privacy-policy/">Privacy Policy</a></li>
+            <li><a href="terms/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; <span id="footer-year">2026</span> Kitvane. All rights reserved.</span>
+        <span>Free tools. No sign-up. Files stay on your device.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/lucide.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

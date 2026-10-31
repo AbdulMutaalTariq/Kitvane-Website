@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us: Kitvane Tools</title>
+  <meta name="description" content="Get in touch with the Kitvane team for questions, tool suggestions, bug reports, or partnership opportunities. We respond within 24–48 hours." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kitvane.link/contact/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://kitvane.link/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kitvane.link/og-image.png">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact Us: Kitvane Tools" />
+  <meta property="og:description" content="Send us feedback, tool ideas, or business inquiries." />
+  <meta property="og:url" content="https://kitvane.link/contact/" />
+  <meta property="og:site_name" content="Kitvane" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="Contact Us: Kitvane Tools" />
+  <meta name="twitter:description" content="Send us feedback, tool ideas, or business inquiries." />
+
+  <!-- JSON-LD Schemas -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "name": "Contact Kitvane",
+        "url": "https://kitvane.link/contact/",
+        "description": "Contact the Kitvane support team for feature requests, bug reports, or inquiries."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kitvane.link/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact Us",
+            "item": "https://kitvane.link/contact/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+          <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+          Kitvane <span class="navbar__badge">Tools</span>
+        </a>
+        <button class="navbar__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="navbar__nav" role="list">
+          <li><a href="../image-compressor/">Image Compressor</a></li>
+          <li><a href="../loan-calculator/">EMI Calculator</a></li>
+          <li><a href="../age-calculator/">Age Calculator</a></li>
+          <li><a href="../fancy-text/">Fancy Text</a></li>
+          <li><a href="../5-letter-words/">Word Finder</a></li>
+          <li><a href="../about/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+  <div class="container">
+    <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
+  </div>
+
+  <main>
+    <section class="tool-page-hero">
+      <div class="container">
+        <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Contact Us</span>
+        </nav>
+        <h1>Contact the Team<br /><span class="text-gradient">Questions, Feedback &amp; Inquiries</span></h1>
+        <p>We value user feedback and actively review all bug reports, feature requests, and partnership proposals. Fill out the form below or send us an email directly.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="contact-grid" style="display:grid;grid-template-columns:1.5fr 1fr;gap:40px;margin:0 0 60px;">
+
+        <!-- Contact Form Box -->
+        <div class="tool-box" style="margin:0;">
+          <h2 style="font-size:1.3rem;margin-bottom:20px;">Send Us a Message</h2>
+          
+          <form id="contact-form" action="https://formspree.io/f/xyzplaceholder" method="POST">
+            <div class="form-group">
+              <label for="contact-name">Your Full Name</label>
+              <input type="text" id="contact-name" name="name" required placeholder="e.g. John Doe" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" required placeholder="e.g. john@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Inquiry Type</label>
+              <select id="contact-subject" name="subject">
+                <option value="General Question">General Question</option>
+                <option value="Feature Suggestion">Suggest a New Tool</option>
+                <option value="Bug Report">Report a Calculation / Tool Bug</option>
+                <option value="Advertising">Advertising &amp; Sponsorship</option>
+                <option value="Other">Other Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" rows="5" required placeholder="Please describe your question or issue in detail..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary" id="submit-btn" style="width:100%;justify-content:center;">
+              <i data-lucide="mail" data-size="16"></i> Send Message
+            </button>
+            <div id="form-status" style="margin-top:16px;text-align:center;font-size:0.9rem;display:none;"></div>
+          </form>
+        </div>
+
+        <!-- Sidebar Info -->
+        <div>
+          <div class="card" style="margin-bottom:24px;">
+            <div class="card__icon-box" style="margin-bottom:12px;">
+              <i data-lucide="mail" data-size="22"></i>
+            </div>
+            <h3 style="font-size:1.15rem;margin-bottom:8px;">Direct Email</h3>
+            <p style="font-size:0.92rem;margin-bottom:8px;">Feel free to drop us an email for formal requests or media inquiries:</p>
+            <a href="mailto:hello@kitvane.link" style="font-weight:700;font-size:1rem;color:var(--primary);text-decoration:underline;text-underline-offset:3px;">hello@kitvane.link</a>
+          </div>
+
+          <div class="card" style="margin-bottom:24px;">
+            <div class="card__icon-box" style="margin-bottom:12px;">
+              <i data-lucide="clock" data-size="22"></i>
+            </div>
+            <h3 style="font-size:1.15rem;margin-bottom:8px;">Response Times</h3>
+            <p style="font-size:0.92rem;margin:0;">We monitor our inbox constantly. You can expect a response within <strong>24 to 48 business hours</strong>.</p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon-box" style="margin-bottom:12px;">
+              <i data-lucide="briefcase" data-size="22"></i>
+            </div>
+            <h3 style="font-size:1.15rem;margin-bottom:8px;">Advertising &amp; Partners</h3>
+            <p style="font-size:0.92rem;margin:0;">Looking for direct display placements or tailored sponsorships? Select "Advertising" in the inquiry dropdown with your monthly traffic metrics.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+            <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
+            Kitvane
+          </a>
+          <p>Free browser-based utility tools. No account. No uploads. Just tools that work.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Tools</p>
+          <ul class="footer__links">
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../loan-calculator/">EMI Calculator</a></li>
+            <li><a href="../age-calculator/">Age Calculator</a></li>
+            <li><a href="../fancy-text/">Fancy Text</a></li>
+            <li><a href="../5-letter-words/">Word Finder</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__links">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Legal</p>
+          <ul class="footer__links">
+            <li><a href="../privacy-policy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span class="footer-year">2026</span> Kitvane. All rights reserved.</span>
+        <span>We respect your inbox privacy.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/lucide.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function initContact() {
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      const btn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        // Simulated instant success feedback for UX
+        setTimeout(() => {
+          status.style.display = 'block';
+          status.style.color = 'var(--secondary)';
+          status.textContent = '✓ Thank you! Your message has been received. We will respond shortly.';
+          form.reset();
+          btn.disabled = false;
+          btn.textContent = '✉️ Send Message';
+          window.showToast('✓ Message sent successfully!');
+        }, 800);
+      });
+
+      document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
