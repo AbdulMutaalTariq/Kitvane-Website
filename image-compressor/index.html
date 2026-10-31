@@ -12,8 +12,8 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#1d4ed8">
+  <link rel="preload" href="/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kitvane">
   <meta property="og:title" content="Image Compressor: Kitvane Tools">
@@ -25,7 +25,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Image Compressor: Kitvane Tools">
   <meta name="twitter:description" content="Compress JPG, PNG, and WebP images to your target KB size online. 100% private client-side processing with no file uploads to any server.">
@@ -113,12 +112,9 @@
   ]
 }
   </script>
-  
-  
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
   <style>
     /* ── Image Compressor Scoped Fixes ── */
     /* 1. Preview Wrap: No outer border, 2-column grid with gap (eliminates double border) */
@@ -206,10 +202,10 @@
 <body>
   <div class="bg-fx" aria-hidden="true"></div>
 
-  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+
   <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
@@ -232,13 +228,13 @@
     </nav>
   </header>
 
-  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+
   <div class="container">
     <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
   </div>
 
   <main>
-    <!-- ══ HERO ════════════════════════════════════════════════ -->
+
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -253,26 +249,26 @@
 
     <div class="container">
 
-      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
+
       <div class="tool-box">
         <div class="tool-box__header">
           <div class="tool-box__icon">
-            <i data-lucide="image" data-size="22"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></svg>
           </div>
           <h2 class="tool-box__title">Image Compressor Tool</h2>
         </div>
 
-        <!-- Upload Area -->
+
         <div class="upload-area" id="upload-area" role="button" aria-label="Upload image file">
           <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" aria-label="Select image file" />
           <div class="upload-area__icon">
-            <i data-lucide="image" data-size="28"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></svg>
           </div>
           <p><strong>Click to choose an image</strong> or drag and drop here</p>
           <p style="font-size:0.82rem;color:var(--text-muted);margin-top:6px;">JPG, PNG, WebP — up to ~20MB</p>
         </div>
 
-        <!-- Settings -->
+
         <div id="tool-settings" class="hidden" style="margin-top:28px;">
           <div class="form-row">
             <div class="form-group">
@@ -313,19 +309,19 @@
           </button>
         </div>
 
-        <!-- Preview -->
+
         <div class="img-preview-wrap" id="preview-wrap">
           <div class="img-preview-box">
-            <img id="preview-original" src="" alt="Original image preview" />
+            <img id="preview-original" src="" alt="Original image preview" width="300" height="200" style="aspect-ratio:3/2;object-fit:contain;" />
             <p id="original-info">Original</p>
           </div>
           <div class="img-preview-box">
-            <img id="preview-compressed" src="" alt="Compressed image preview" />
+            <img id="preview-compressed" src="" alt="Compressed image preview" width="300" height="200" style="aspect-ratio:3/2;object-fit:contain;" />
             <p id="compressed-info">Compressed</p>
           </div>
         </div>
 
-        <!-- Result -->
+
         <div class="result-box" id="result-box">
           <div class="results-grid" id="result-stats"></div>
           <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
@@ -334,12 +330,12 @@
           </div>
         </div>
       </div>
-      <!-- END TOOL BOX -->
 
-      <!-- ══ AD SLOT — MID ══════════════════════════════════════ -->
+
+
       <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
 
-      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
+
       <article class="content-section" id="content">
 
         <h2>What Does This Image Compressor Do?</h2>
@@ -479,7 +475,7 @@
           <li><strong>WhatsApp profile pictures and statuses:</strong> WhatsApp compresses images it receives, so pre-compressing to around 100–200 KB gives you more control over final quality.</li>
         </ul>
 
-        <!-- ══ AD IN CONTENT ═════════════════════════════════════ -->
+
         <div class="ad-slot ad-slot--content" aria-hidden="true"></div>
 
         <h2>Understanding Lossy vs. Lossless Compression</h2>
@@ -496,7 +492,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Does compressing an image reduce its quality?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -510,7 +506,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Is my image uploaded to any server?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -524,7 +520,7 @@
             <button class="faq-item__question" aria-expanded="false">
               What is the maximum file size this tool supports?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -538,7 +534,7 @@
             <button class="faq-item__question" aria-expanded="false">
               What is the best image format for websites?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -552,7 +548,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Can I compress a PNG file without losing its transparent background?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -564,19 +560,19 @@
 
         </div>
 
-        <!-- Related Tools -->
+
         <h2>Related Tools</h2>
         <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
           <a href="/loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
-              <i data-lucide="calculator" data-size="22"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calculator" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" /><line x1="8" x2="16" y1="6" y2="6" /><line x1="16" x2="16" y1="14" y2="18" /><path d="M16 10h.01" /><path d="M12 10h.01" /><path d="M8 10h.01" /><path d="M12 14h.01" /><path d="M8 14h.01" /><path d="M12 18h.01" /><path d="M8 18h.01" /></svg>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">EMI Calculator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Calculate monthly loan payments</p>
           </a>
           <a href="/fancy-text/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
-              <i data-lucide="type" data-size="22"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type" aria-hidden="true"><path d="M12 4v16" /><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" /><path d="M9 20h6" /></svg>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Fancy Text Generator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Create stylish Unicode text</p>
@@ -587,7 +583,7 @@
     </div>
   </main>
 
-  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -630,8 +626,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/lucide.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
   <script>
     // ── Image Compressor Logic ────────────────────────────────────
     (function () {

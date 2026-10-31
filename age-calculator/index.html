@@ -12,8 +12,8 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#1d4ed8">
+  <link rel="preload" href="/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kitvane">
   <meta property="og:title" content="Age Calculator: Kitvane Tools">
@@ -25,7 +25,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Age Calculator: Kitvane Tools">
   <meta name="twitter:description" content="Calculate your exact age in years, months, days, and hours. Discover upcoming birthday countdowns and historical life milestones for free.">
@@ -113,14 +112,11 @@
   ]
 }
   </script>
-  
-  
-  
-  <!-- JSON-LD Schemas -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+
+
+
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
   <style>
     .tool-box {
       position: relative;
@@ -326,10 +322,10 @@
 <body>
   <div class="bg-fx" aria-hidden="true"></div>
 
-  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+
   <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
@@ -352,13 +348,13 @@
     </nav>
   </header>
 
-  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+
   <div class="container">
     <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
   </div>
 
   <main>
-    <!-- ══ HERO ════════════════════════════════════════════════ -->
+
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -373,11 +369,11 @@
 
     <div class="container">
 
-      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
+
       <div class="tool-box">
         <div class="tool-box__header">
           <div class="tool-box__icon">
-            <i data-lucide="calendar" data-size="22"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v3" /><path d="M16 2v3" /><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /></svg>
           </div>
           <h2 class="tool-box__title">Age &amp; Date Difference Calculator</h2>
         </div>
@@ -388,7 +384,7 @@
             <div class="datepicker-wrap" id="birth-wrap">
               <input type="text" id="birth-date" placeholder="YYYY-MM-DD" autocomplete="off" />
               <button type="button" class="datepicker-toggle-btn" aria-label="Open calendar">
-                <i data-lucide="calendar" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v3" /><path d="M16 2v3" /><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /></svg>
               </button>
             </div>
           </div>
@@ -397,7 +393,7 @@
             <div class="datepicker-wrap" id="target-wrap">
               <input type="text" id="target-date" placeholder="YYYY-MM-DD" autocomplete="off" />
               <button type="button" class="datepicker-toggle-btn" aria-label="Open calendar">
-                <i data-lucide="calendar" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v3" /><path d="M16 2v3" /><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /></svg>
               </button>
             </div>
           </div>
@@ -407,7 +403,7 @@
           Calculate Age
         </button>
 
-        <!-- Result Box -->
+
         <div class="result-box" id="result-box">
           <div style="margin-bottom:16px;">
             <span class="result-box__label">Your Current Age</span>
@@ -440,12 +436,12 @@
           </div>
         </div>
       </div>
-      <!-- END TOOL BOX -->
 
-      <!-- ══ AD SLOT — MID ══════════════════════════════════════ -->
+
+
       <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
 
-      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
+
       <article class="content-section" id="content">
 
         <h2>How Does This Age Calculator Work?</h2>
@@ -537,7 +533,7 @@
           <li><strong>Record Longevity:</strong> The oldest verified person in recorded human history was Jeanne Calment of France, who lived to an extraordinary age of 122 years and 164 days (44,724 days).</li>
         </ul>
 
-        <!-- ══ AD IN CONTENT ═════════════════════════════════════ -->
+
         <div class="ad-slot ad-slot--content" aria-hidden="true"></div>
 
         <h2>Traditional Korean Age vs. International Age Explained</h2>
@@ -551,7 +547,7 @@
             <button class="faq-item__question" aria-expanded="false">
               How does the calculator handle leap years?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -565,7 +561,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Why is Korean age different from my calculated age?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -579,7 +575,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Can I calculate the time between two past dates?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -593,7 +589,7 @@
             <button class="faq-item__question" aria-expanded="false">
               How many days old am I?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -607,7 +603,7 @@
             <button class="faq-item__question" aria-expanded="false">
               What is the most common reason age calculations are wrong?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -619,19 +615,19 @@
 
         </div>
 
-        <!-- Related Tools -->
+
         <h2>Related Tools</h2>
         <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
           <a href="/loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
-              <i data-lucide="calculator" data-size="22"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calculator" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" /><line x1="8" x2="16" y1="6" y2="6" /><line x1="16" x2="16" y1="14" y2="18" /><path d="M16 10h.01" /><path d="M12 10h.01" /><path d="M8 10h.01" /><path d="M12 14h.01" /><path d="M8 14h.01" /><path d="M12 18h.01" /><path d="M8 18h.01" /></svg>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">EMI Calculator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Loan payment &amp; interest schedule</p>
           </a>
           <a href="/fancy-text/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
-              <i data-lucide="type" data-size="22"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type" aria-hidden="true"><path d="M12 4v16" /><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" /><path d="M9 20h6" /></svg>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Fancy Text Generator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Stylish fonts for bio &amp; posts</p>
@@ -642,7 +638,7 @@
     </div>
   </main>
 
-  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -685,8 +681,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/lucide.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
   <script>
     function initCustomDatePicker(wrapEl, inputEl, initialDate, minYear = 1920, maxYear = new Date().getFullYear()) {
       let viewYear = initialDate ? initialDate.getFullYear() : 2000;

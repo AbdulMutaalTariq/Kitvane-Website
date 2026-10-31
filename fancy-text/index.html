@@ -12,8 +12,8 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#1d4ed8">
+  <link rel="preload" href="/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kitvane">
   <meta property="og:title" content="Fancy Text Generator: Kitvane Tools">
@@ -25,7 +25,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fancy Text Generator: Kitvane Tools">
   <meta name="twitter:description" content="Generate stylish Unicode text styles online. Copy and paste gothic, cursive, bold, and bubble fonts for Instagram, Twitter, and WhatsApp bio.">
@@ -113,21 +112,19 @@
   ]
 }
   </script>
-  
-  
-  
-  <!-- JSON-LD Schemas -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-</head>
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
+  </head>
 <body>
   <div class="bg-fx" aria-hidden="true"></div>
 
-  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+
   <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
@@ -150,13 +147,13 @@
     </nav>
   </header>
 
-  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+
   <div class="container">
     <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
   </div>
 
   <main>
-    <!-- ══ HERO ════════════════════════════════════════════════ -->
+
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -171,11 +168,11 @@
 
     <div class="container">
 
-      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
+
       <div class="tool-box">
         <div class="tool-box__header">
           <div class="tool-box__icon">
-            <i data-lucide="type" data-size="22"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type" aria-hidden="true"><path d="M12 4v16" /><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" /><path d="M9 20h6" /></svg>
           </div>
           <h2 class="tool-box__title">Live Font Transformer</h2>
         </div>
@@ -192,16 +189,16 @@
           </div>
 
           <div class="font-list" id="font-results">
-            <!-- Rendered dynamically by JS -->
+
           </div>
         </div>
       </div>
-      <!-- END TOOL BOX -->
 
-      <!-- ══ AD SLOT — MID ══════════════════════════════════════ -->
+
+
       <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
 
-      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
+
       <article class="content-section" id="content">
 
         <h2>What Is Fancy Text &amp; Unicode Text?</h2>
@@ -355,7 +352,7 @@
           <li><strong>Gaming Usernames:</strong> Steam, Roblox, PUBG, and Free Fire screen names.</li>
         </ul>
 
-        <!-- ══ AD IN CONTENT ═════════════════════════════════════ -->
+
         <div class="ad-slot ad-slot--content" aria-hidden="true"></div>
 
         <h2>Accessibility &amp; SEO Best Practices</h2>
@@ -376,7 +373,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Why doesn't fancy text work in some apps?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -390,7 +387,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Is this copy-paste text or actual font changes?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -404,7 +401,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Will this work on Instagram bio right now?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -418,7 +415,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Does fancy text affect accessibility?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -432,7 +429,7 @@
             <button class="faq-item__question" aria-expanded="false">
               Are any Unicode styles blocked by social platforms?
               <span class="faq-item__icon" aria-hidden="true">
-                <i data-lucide="chevron-down" data-size="18"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </span>
             </button>
             <div class="faq-item__answer">
@@ -444,19 +441,19 @@
 
         </div>
 
-        <!-- Related Tools -->
+
         <h2>Related Tools</h2>
         <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
           <a href="/5-letter-words/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
-              <i data-lucide="search" data-size="22"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">5-Letter Word Finder</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Wordle solver &amp; letter filter</p>
           </a>
           <a href="/image-compressor/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
-              <i data-lucide="image" data-size="22"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></svg>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Image Compressor</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Compress JPG/PNG to target KB</p>
@@ -467,7 +464,7 @@
     </div>
   </main>
 
-  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -510,8 +507,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/lucide.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
   <script>
     (function initFancyText() {
       const fontInput = document.getElementById('font-input');

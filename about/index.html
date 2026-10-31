@@ -12,8 +12,8 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#1d4ed8">
+  <link rel="preload" href="/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kitvane">
   <meta property="og:title" content="About Us: Kitvane Tools">
@@ -25,7 +25,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Us: Kitvane Tools">
   <meta name="twitter:description" content="Learn about Kitvane: who we are, what we built, and why we built free privacy-first browser tools with no account or uploads required.">
@@ -54,21 +53,19 @@
   ]
 }
   </script>
-  
-  
-  
-  <!-- JSON-LD Schemas -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-</head>
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
+  </head>
 <body>
   <div class="bg-fx" aria-hidden="true"></div>
 
-  <!-- ══ SCROLL PROGRESS & AMBIENT DEPTH ═════════════════════════ -->
+
   <div id="scroll-progress" class="scroll-progress-bar"></div>
 
-  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
@@ -91,7 +88,7 @@
     </nav>
   </header>
 
-  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
+
   <div class="container">
     <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
   </div>
@@ -145,7 +142,7 @@
     </div>
   </main>
 
-  <!-- ══ FOOTER ═══════════════════════════════════════════════════ -->
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
@@ -188,8 +185,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/lucide.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
   <script>
     document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
   </script>

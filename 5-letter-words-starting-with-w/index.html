@@ -12,8 +12,8 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#1d4ed8">
+  <link rel="preload" href="/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Open Graph / Link Preview -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kitvane">
   <meta property="og:title" content="5-Letter Words Starting With W (27 Words): Kitvane">
@@ -25,7 +25,6 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="5-Letter Words Starting With W (27 Words): Kitvane">
   <meta name="twitter:description" content="Explore 27 five-letter words starting with W for Wordle, Scrabble, and daily word puzzles. Browse the full verified word list with letter filters.">
@@ -105,16 +104,7 @@
 }
   </script>
 
-  <!-- Preconnect Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
 
   <style>
     .word-chip { display: inline-flex; align-items: center; justify-content: center; padding: 6px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); font-weight: 600; font-family: monospace; font-size: 0.95rem; color: var(--ink); letter-spacing: 0.05em; cursor: pointer; transition: all var(--transition-fast); }
@@ -123,7 +113,6 @@
 </head>
 <body>
 
-  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
@@ -146,13 +135,12 @@
     </nav>
   </header>
 
-  <!-- ══ AD SLOT — TOP ═══════════════════════════════════════════ -->
   <div class="container">
     <div class="ad-slot ad-slot--top" aria-hidden="true"></div>
   </div>
 
   <main>
-    <!-- ══ HERO ════════════════════════════════════════════════ -->
+
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -169,16 +157,14 @@
 
     <div class="container">
 
-      <!-- ══ TOOL BOX ═══════════════════════════════════════════ -->
       <div class="tool-box">
         <div class="tool-box__header">
           <div class="tool-box__icon">
-            <i data-lucide="search" data-size="22"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg>
           </div>
           <h2 class="tool-box__title">Filter 5-Letter Words Starting With W</h2>
         </div>
 
-        <!-- Exact Wordle Position Letters -->
         <div class="form-group" style="margin-bottom:20px;">
           <label>Known Letter Positions (Wordle Green Tiles):</label>
           <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;">
@@ -217,7 +203,6 @@
           <button class="btn btn--secondary" id="clear-btn">🔄 Clear Filters</button>
         </div>
 
-        <!-- Results Area -->
         <div style="margin-top:28px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
             <span class="word-count-badge" id="word-count-badge">Showing 27 Words</span>
@@ -255,10 +240,7 @@
           </div>
         </div>
       </div>
-      <!-- END TOOL BOX -->
 
-      <!-- ══ ALPHABET NAVIGATION ═════════════════════════════════ -->
-      
         <div class="card" style="padding:20px;margin:24px 0;">
           <h3 style="margin-bottom:12px;font-size:1.1rem;">Browse 5-Letter Words by Starting Letter</h3>
           <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
@@ -292,8 +274,6 @@
           </div>
         </div>
 
-
-      <!-- ══ SEO CONTENT ════════════════════════════════════════ -->
       <article class="content-section" id="content">
 
         <h2>Complete List of 5-Letter Words Starting With W</h2>
@@ -367,7 +347,6 @@
     </div>
   </main>
 
-  <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
@@ -412,8 +391,7 @@
     </div>
   </footer>
 
-  <!-- ══ JS LOGIC ═══════════════════════════════════════════════ -->
-  <script src="/assets/js/common.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
   <script>
     (function () {
       'use strict';
