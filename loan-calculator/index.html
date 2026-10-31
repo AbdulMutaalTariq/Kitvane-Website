@@ -220,28 +220,25 @@
         </button>
 
 
-        <div class="result-box" id="result-box">
+        <div class="result-box is-visible" id="result-box">
           <div style="margin-bottom:16px;">
             <span class="result-box__label">Monthly EMI Payment</span>
-            <div class="result-box__main" id="res-emi">$0.00</div>
+            <div class="result-box__main" id="res-emi">$500.95</div>
           </div>
-
           <div class="results-grid">
             <div class="result-item">
-              <span class="result-item__value" id="res-principal">$0.00</span>
+              <span class="result-item__value" id="res-principal">$25,000.00</span>
               <span class="result-item__label">Principal Amount</span>
             </div>
             <div class="result-item">
-              <span class="result-item__value" style="color:var(--warning);" id="res-interest">$0.00</span>
+              <span class="result-item__value" style="color:var(--warning);" id="res-interest">$5,056.92</span>
               <span class="result-item__label">Total Interest</span>
             </div>
             <div class="result-item">
-              <span class="result-item__value" style="color:var(--secondary);" id="res-total">$0.00</span>
+              <span class="result-item__value" style="color:var(--secondary);" id="res-total">$30,056.92</span>
               <span class="result-item__label">Total Payment</span>
             </div>
           </div>
-
-
           <h3 style="margin-top:36px;margin-bottom:12px;font-size:1.15rem;color:var(--text-primary);">Year-by-Year Amortization Schedule</h3>
           <div class="table-wrap">
             <table id="amort-table">
@@ -253,14 +250,42 @@
                   <th>Ending Balance</th>
                 </tr>
               </thead>
-              <tbody id="amort-body"></tbody>
+              <tbody id="amort-body">
+                <tr>
+                  <td style="font-weight:600;color:var(--text-primary);text-align:left;">Year 1</td>
+                  <td style="text-align:right;">$4,281.58</td>
+                  <td style="text-align:right;color:var(--warning);">$1,729.81</td>
+                  <td style="text-align:right;font-weight:600;">$20,718.42</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:var(--text-primary);text-align:left;">Year 2</td>
+                  <td style="text-align:right;">$4,613.97</td>
+                  <td style="text-align:right;color:var(--warning);">$1,397.42</td>
+                  <td style="text-align:right;font-weight:600;">$16,104.46</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:var(--text-primary);text-align:left;">Year 3</td>
+                  <td style="text-align:right;">$4,972.16</td>
+                  <td style="text-align:right;color:var(--warning);">$1,039.22</td>
+                  <td style="text-align:right;font-weight:600;">$11,132.29</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:var(--text-primary);text-align:left;">Year 4</td>
+                  <td style="text-align:right;">$5,358.16</td>
+                  <td style="text-align:right;color:var(--warning);">$653.22</td>
+                  <td style="text-align:right;font-weight:600;">$5,774.13</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:var(--text-primary);text-align:left;">Year 5</td>
+                  <td style="text-align:right;">$5,774.13</td>
+                  <td style="text-align:right;color:var(--warning);">$237.25</td>
+                  <td style="text-align:right;font-weight:600;">$0.00</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
       </div>
-
-
-
       <div class="ad-slot ad-slot--mid" aria-hidden="true"></div>
 
 
