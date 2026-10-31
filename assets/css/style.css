@@ -1378,7 +1378,7 @@ tr:hover td {
 }
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 48px;
 }
