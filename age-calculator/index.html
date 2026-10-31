@@ -4,116 +4,119 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Age Calculator: Kitvane Tools</title>
-  <meta name="description" content="Calculate your exact age in years, months, days, and hours. Find days until your next birthday and total days you have lived. Free, instant, no sign-up." />
-  <meta name="keywords" content="age calculator, date of birth calculator, how old am i, exact age calculator, birthday countdown, days lived calculator" />
+  <meta name="description" content="Calculate your exact age in years, months, days, and hours. Discover upcoming birthday countdowns and historical life milestones for free." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tools.kitvane.workers.dev/age-calculator/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kitvane">
+  <meta property="og:title" content="Age Calculator: Kitvane Tools">
+  <meta property="og:description" content="Calculate your exact age in years, months, days, and hours. Discover upcoming birthday countdowns and historical life milestones for free.">
+  <meta property="og:url" content="https://tools.kitvane.workers.dev/age-calculator/">
   <meta property="og:image" content="https://tools.kitvane.workers.dev/og-image.png">
-  <meta property="og:image:secure_url" content="https://tools.kitvane.workers.dev/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Kitvane Free Online Tools">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tools.kitvane.workers.dev/og-image.png">
-  <meta name="theme-color" content="#1d4ed8">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Age Calculator: Kitvane Tools" />
-  <meta property="og:description" content="Calculate exact age in years, months, days, and hours. Next birthday countdown and life milestone facts." />
-  <meta property="og:url" content="https://tools.kitvane.workers.dev/age-calculator/" />
-  <meta property="og:site_name" content="Kitvane" />
+  <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
   <!-- Twitter Card -->
-  <meta name="twitter:title" content="Age Calculator: Kitvane Tools" />
-  <meta name="twitter:description" content="Calculate your chronological age, exact days lived, and next birthday countdown. 100% free." />
-
-  <!-- JSON-LD Schemas -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Age Calculator: Kitvane Tools">
+  <meta name="twitter:description" content="Calculate your exact age in years, months, days, and hours. Discover upcoming birthday countdowns and historical life milestones for free.">
+  <meta name="twitter:image" content="https://tools.kitvane.workers.dev/og-image.png">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "Age Calculator",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "description": "Calculate exact age in years, months, days, hours, weeks, and minutes. Handles leap years correctly.",
-        "url": "https://tools.kitvane.workers.dev/age-calculator/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Age Calculator",
+      "url": "https://tools.kitvane.workers.dev/age-calculator/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://tools.kitvane.workers.dev/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Age Calculator",
-            "item": "https://tools.kitvane.workers.dev/age-calculator/"
+      "description": "Calculate exact age in years, months, days, hours, weeks, and minutes. Handles leap years correctly."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tools.kitvane.workers.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Age Calculator",
+          "item": "https://tools.kitvane.workers.dev/age-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the calculator handle leap years?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The calculator computes age using actual calendar date arithmetic rather than a fixed 365.25-day approximation. It counts complete years by checking whether the anniversary date has passed in the current year, then counts complete months, then remaining days. A person born on February 29 (a leap day) turns a year older on March 1 in non-leap years, which is the most widely accepted convention."
           }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does the calculator handle leap years?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The calculator computes age using actual calendar date arithmetic rather than a fixed 365.25-day approximation. It counts complete years by checking whether the anniversary date has passed in the current year, then counts complete months, then remaining days. A person born on February 29 (a leap day) turns a year older on March 1 in non-leap years, which is the most widely accepted convention."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why is Korean age different from my calculated age?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "In the traditional Korean age system, everyone is counted as 1 year old at birth (because the time spent in the womb is considered), and everyone gains a year on January 1st regardless of their actual birthday. This means a person born on December 31 becomes 2 years old in Korean reckoning just one day later, on January 1st. South Korea officially adopted the international age system for legal and administrative purposes in 2023, though the traditional system is still used culturally."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I calculate the time between two past dates?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. The 'Age As Of' field accepts any date — past, present, or future. To find the time between two past dates, enter the earlier date as the Date of Birth and the later date as the Age As Of date. The calculator will return the exact difference in years, months, and days, as well as total weeks, days, and hours."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How many days old am I?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The total days lived is calculated by finding the difference in milliseconds between your birth date and today, then dividing by the number of milliseconds in a day (86,400,000). This accounts for all leap years automatically, since it operates on actual calendar dates. As a rough guide, a 30-year-old has lived approximately 10,957 days, a 40-year-old about 14,610 days, and a 50-year-old about 18,262 days."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the most common reason age calculations are wrong?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The most common error is dividing the number of days between two dates by 365 (or 365.25). This works reasonably well for rough estimates but fails to correctly count complete years and months. For example, the period from January 1 to December 31 is 364 days — which would round to 0 years if divided by 365, even though the person is nearly a full year older. Correct age calculation counts complete years first by checking whether the birthday has occurred in the current year, then counts complete months, then remaining days."
-            }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is Korean age different from my calculated age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the traditional Korean age system, everyone is counted as 1 year old at birth (because the time spent in the womb is considered), and everyone gains a year on January 1st regardless of their actual birthday. This means a person born on December 31 becomes 2 years old in Korean reckoning just one day later, on January 1st. South Korea officially adopted the international age system for legal and administrative purposes in 2023, though the traditional system is still used culturally."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I calculate the time between two past dates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The 'Age As Of' field accepts any date — past, present, or future. To find the time between two past dates, enter the earlier date as the Date of Birth and the later date as the Age As Of date. The calculator will return the exact difference in years, months, and days, as well as total weeks, days, and hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many days old am I?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The total days lived is calculated by finding the difference in milliseconds between your birth date and today, then dividing by the number of milliseconds in a day (86,400,000). This accounts for all leap years automatically, since it operates on actual calendar dates. As a rough guide, a 30-year-old has lived approximately 10,957 days, a 40-year-old about 14,610 days, and a 50-year-old about 18,262 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the most common reason age calculations are wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common error is dividing the number of days between two dates by 365 (or 365.25). This works reasonably well for rough estimates but fails to correctly count complete years and months. For example, the period from January 1 to December 31 is 364 days — which would round to 0 years if divided by 365, even though the person is nearly a full year older. Correct age calculation counts complete years first by checking whether the birthday has occurred in the current year, then counts complete months, then remaining days."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
-
+  
+  
+  
+  <!-- JSON-LD Schemas -->
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -330,7 +333,7 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
-        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+        <a href="/" class="navbar__logo" aria-label="Kitvane Home">
           <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
           Kitvane <span class="navbar__badge">Tools</span>
         </a>
@@ -338,12 +341,12 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="navbar__nav" role="list">
-          <li><a href="../image-compressor/">Image Compressor</a></li>
-          <li><a href="../loan-calculator/">EMI Calculator</a></li>
-          <li><a href="../age-calculator/" class="active">Age Calculator</a></li>
-          <li><a href="../fancy-text/">Fancy Text</a></li>
-          <li><a href="../5-letter-words/">Word Finder</a></li>
-          <li><a href="../about/">About</a></li>
+          <li><a href="/image-compressor/">Image Compressor</a></li>
+          <li><a href="/loan-calculator/">EMI Calculator</a></li>
+          <li><a href="/age-calculator/" class="active">Age Calculator</a></li>
+          <li><a href="/fancy-text/">Fancy Text</a></li>
+          <li><a href="/5-letter-words/">Word Finder</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </div>
     </nav>
@@ -359,7 +362,7 @@
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
-          <a href="../">Home</a>
+          <a href="/">Home</a>
           <span aria-hidden="true">›</span>
           <span aria-current="page">Age Calculator</span>
         </nav>
@@ -619,14 +622,14 @@
         <!-- Related Tools -->
         <h2>Related Tools</h2>
         <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-          <a href="../loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
+          <a href="/loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
               <i data-lucide="calculator" data-size="22"></i>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">EMI Calculator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Loan payment &amp; interest schedule</p>
           </a>
-          <a href="../fancy-text/" class="card" style="padding:20px;text-decoration:none;">
+          <a href="/fancy-text/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
               <i data-lucide="type" data-size="22"></i>
             </div>
@@ -644,7 +647,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+          <a href="/" class="navbar__logo" style="font-size:1.2rem;">
             <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
             Kitvane
           </a>
@@ -653,25 +656,25 @@
         <div>
           <p class="footer__col-title">Tools</p>
           <ul class="footer__links">
-            <li><a href="../image-compressor/">Image Compressor</a></li>
-            <li><a href="../loan-calculator/">EMI Calculator</a></li>
-            <li><a href="../age-calculator/">Age Calculator</a></li>
-            <li><a href="../fancy-text/">Fancy Text</a></li>
-            <li><a href="../5-letter-words/">Word Finder</a></li>
+            <li><a href="/image-compressor/">Image Compressor</a></li>
+            <li><a href="/loan-calculator/">EMI Calculator</a></li>
+            <li><a href="/age-calculator/">Age Calculator</a></li>
+            <li><a href="/fancy-text/">Fancy Text</a></li>
+            <li><a href="/5-letter-words/">Word Finder</a></li>
           </ul>
         </div>
         <div>
           <p class="footer__col-title">Company</p>
           <ul class="footer__links">
-            <li><a href="../about/">About Us</a></li>
-            <li><a href="../contact/">Contact</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div>
           <p class="footer__col-title">Legal</p>
           <ul class="footer__links">
-            <li><a href="../privacy-policy/">Privacy Policy</a></li>
-            <li><a href="../terms/">Terms of Service</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
           </ul>
         </div>
       </div>

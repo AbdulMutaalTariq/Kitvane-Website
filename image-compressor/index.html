@@ -4,98 +4,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Image Compressor: Kitvane Tools</title>
-  <meta name="description" content="Compress images to exact KB size online. Resize JPG, PNG, WebP to target file size. No upload to server — everything runs in your browser. Free and instant." />
-  <meta name="keywords" content="image compressor, compress image online, compress jpg online, compress image to 100kb, resize image online, image size reducer, webp converter" />
+  <meta name="description" content="Compress JPG, PNG, and WebP images to your target KB size online. 100% private client-side processing with no file uploads to any server." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tools.kitvane.workers.dev/image-compressor/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kitvane">
+  <meta property="og:title" content="Image Compressor: Kitvane Tools">
+  <meta property="og:description" content="Compress JPG, PNG, and WebP images to your target KB size online. 100% private client-side processing with no file uploads to any server.">
+  <meta property="og:url" content="https://tools.kitvane.workers.dev/image-compressor/">
   <meta property="og:image" content="https://tools.kitvane.workers.dev/og-image.png">
-  <meta property="og:image:secure_url" content="https://tools.kitvane.workers.dev/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Kitvane Free Online Tools">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tools.kitvane.workers.dev/og-image.png">
-  <meta name="theme-color" content="#1d4ed8">
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Image Compressor: Kitvane Tools" />
-  <meta property="og:description" content="Compress images to exact KB size online. Supports JPG, PNG, WebP. Runs in browser — 100% private." />
-  <meta property="og:url" content="https://tools.kitvane.workers.dev/image-compressor/" />
-  <meta property="og:site_name" content="Kitvane" />
+  <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
   <!-- Twitter Card -->
-  <meta name="twitter:title" content="Image Compressor: Kitvane Tools" />
-  <meta name="twitter:description" content="Compress JPG, PNG, and WebP images to exact target KB in your browser. Fast, free, and private." />
-
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Compressor: Kitvane Tools">
+  <meta name="twitter:description" content="Compress JPG, PNG, and WebP images to your target KB size online. 100% private client-side processing with no file uploads to any server.">
+  <meta name="twitter:image" content="https://tools.kitvane.workers.dev/og-image.png">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "Image Compressor",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "description": "Compress images to exact KB size online. Supports JPG, PNG, WebP. Runs entirely in browser.",
-        "url": "https://tools.kitvane.workers.dev/image-compressor/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Image Compressor",
+      "url": "https://tools.kitvane.workers.dev/image-compressor/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://tools.kitvane.workers.dev/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Image Compressor",
-            "item": "https://tools.kitvane.workers.dev/image-compressor/"
+      "description": "Compress images to exact KB size online. Supports JPG, PNG, WebP. Runs entirely in browser."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tools.kitvane.workers.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Image Compressor",
+          "item": "https://tools.kitvane.workers.dev/image-compressor/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does compressing an image reduce its quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the format. JPEG compression is lossy — reducing file size does reduce quality slightly, but at 70–80% quality the difference is barely visible to the human eye. PNG compression is lossless — it reduces file size without any quality loss. WebP supports both modes and typically achieves 25% smaller files than JPEG at the same visual quality."
           }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does compressing an image reduce its quality?",
-            "acceptedAnswer": { "@type": "Answer", "text": "It depends on the format. JPEG compression is lossy — reducing file size does reduce quality slightly, but at 70–80% quality the difference is barely visible to the human eye. PNG compression is lossless — it reduces file size without any quality loss. WebP supports both modes and typically achieves 25% smaller files than JPEG at the same visual quality." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my image uploaded to any server?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. This tool uses the HTML5 Canvas API in your browser. Your image is never sent to any server. Everything happens locally on your device, so your files remain completely private." }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the maximum file size this compressor supports?",
-            "acceptedAnswer": { "@type": "Answer", "text": "The practical limit depends on your device's RAM and browser. Most devices handle images up to 15–20MB without any issues. Very large images (above 30MB) may cause slowness on older devices." }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the best image format for websites?",
-            "acceptedAnswer": { "@type": "Answer", "text": "WebP is the best format for modern websites. It produces files 25–35% smaller than JPEG at equivalent visual quality, and is supported by all modern browsers (Chrome, Firefox, Safari, Edge). If you need transparency, use WebP instead of PNG — it compresses much better." }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I compress a PNG without losing transparency?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. When you select PNG as the output format, the tool uses lossless compression and preserves the transparent background. If you convert a PNG to JPEG, transparency is lost because JPEG does not support alpha channels — the transparent areas become white." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my image uploaded to any server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This tool uses the HTML5 Canvas API in your browser. Your image is never sent to any server. Everything happens locally on your device, so your files remain completely private."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the maximum file size this compressor supports?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The practical limit depends on your device's RAM and browser. Most devices handle images up to 15–20MB without any issues. Very large images (above 30MB) may cause slowness on older devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best image format for websites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WebP is the best format for modern websites. It produces files 25–35% smaller than JPEG at equivalent visual quality, and is supported by all modern browsers (Chrome, Firefox, Safari, Edge). If you need transparency, use WebP instead of PNG — it compresses much better."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I compress a PNG without losing transparency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. When you select PNG as the output format, the tool uses lossless compression and preserves the transparent background. If you convert a PNG to JPEG, transparency is lost because JPEG does not support alpha channels — the transparent areas become white."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
-
+  
+  
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -194,7 +213,7 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
-        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+        <a href="/" class="navbar__logo" aria-label="Kitvane Home">
           <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
           Kitvane <span class="navbar__badge">Tools</span>
         </a>
@@ -202,12 +221,12 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="navbar__nav" role="list">
-          <li><a href="../image-compressor/" class="active">Image Compressor</a></li>
-          <li><a href="../loan-calculator/">EMI Calculator</a></li>
-          <li><a href="../age-calculator/">Age Calculator</a></li>
-          <li><a href="../fancy-text/">Fancy Text</a></li>
-          <li><a href="../5-letter-words/">Word Finder</a></li>
-          <li><a href="../about/">About</a></li>
+          <li><a href="/image-compressor/" class="active">Image Compressor</a></li>
+          <li><a href="/loan-calculator/">EMI Calculator</a></li>
+          <li><a href="/age-calculator/">Age Calculator</a></li>
+          <li><a href="/fancy-text/">Fancy Text</a></li>
+          <li><a href="/5-letter-words/">Word Finder</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </div>
     </nav>
@@ -223,7 +242,7 @@
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
-          <a href="../">Home</a>
+          <a href="/">Home</a>
           <span aria-hidden="true">›</span>
           <span aria-current="page">Image Compressor</span>
         </nav>
@@ -332,21 +351,21 @@
           <div class="step-item">
             <div class="step-item__num">1</div>
             <div class="step-item__content">
-              <p class="step-item__title">Choose or drag your image file</p>
+              <h3 class="step-item__title">Choose or drag your image file</h3>
               <p style="margin:0;">Click the upload area and select a JPG, PNG, or WebP file from your device. Drag-and-drop also works on desktop.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-item__num">2</div>
             <div class="step-item__content">
-              <p class="step-item__title">Set your target size and options</p>
+              <h3 class="step-item__title">Set your target size and options</h3>
               <p style="margin:0;">Enter your target file size in KB (e.g., 100 KB for a web image, 200 KB for an email attachment). Optionally, set a max width or height to resize the image. Select an output format if you want to convert.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-item__num">3</div>
             <div class="step-item__content">
-              <p class="step-item__title">Compress and download</p>
+              <h3 class="step-item__title">Compress and download</h3>
               <p style="margin:0;">Click "Compress Image." The tool processes the file locally and shows you a before/after preview with the exact file sizes. Then click "Download Compressed Image."</p>
             </div>
           </div>
@@ -548,14 +567,14 @@
         <!-- Related Tools -->
         <h2>Related Tools</h2>
         <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-          <a href="../loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
+          <a href="/loan-calculator/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
               <i data-lucide="calculator" data-size="22"></i>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">EMI Calculator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Calculate monthly loan payments</p>
           </a>
-          <a href="../fancy-text/" class="card" style="padding:20px;text-decoration:none;">
+          <a href="/fancy-text/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
               <i data-lucide="type" data-size="22"></i>
             </div>
@@ -573,7 +592,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+          <a href="/" class="navbar__logo" style="font-size:1.2rem;">
             <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
             Kitvane
           </a>
@@ -582,25 +601,25 @@
         <div>
           <p class="footer__col-title">Tools</p>
           <ul class="footer__links">
-            <li><a href="../image-compressor/">Image Compressor</a></li>
-            <li><a href="../loan-calculator/">EMI Calculator</a></li>
-            <li><a href="../age-calculator/">Age Calculator</a></li>
-            <li><a href="../fancy-text/">Fancy Text</a></li>
-            <li><a href="../5-letter-words/">Word Finder</a></li>
+            <li><a href="/image-compressor/">Image Compressor</a></li>
+            <li><a href="/loan-calculator/">EMI Calculator</a></li>
+            <li><a href="/age-calculator/">Age Calculator</a></li>
+            <li><a href="/fancy-text/">Fancy Text</a></li>
+            <li><a href="/5-letter-words/">Word Finder</a></li>
           </ul>
         </div>
         <div>
           <p class="footer__col-title">Company</p>
           <ul class="footer__links">
-            <li><a href="../about/">About Us</a></li>
-            <li><a href="../contact/">Contact</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div>
           <p class="footer__col-title">Legal</p>
           <ul class="footer__links">
-            <li><a href="../privacy-policy/">Privacy Policy</a></li>
-            <li><a href="../terms/">Terms of Service</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
           </ul>
         </div>
       </div>

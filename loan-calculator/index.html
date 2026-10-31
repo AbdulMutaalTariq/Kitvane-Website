@@ -3,117 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loan &amp; EMI Calculator: Kitvane Tools</title>
-  <meta name="description" content="Calculate exact monthly EMI for home, car, or personal loans. See total interest, total repayment, and year-by-year amortization table. Free & instant." />
-  <meta name="keywords" content="emi calculator, loan calculator, monthly emi calculator, home loan emi, car loan emi, loan amortization schedule" />
+  <title>Loan & EMI Calculator: Kitvane Tools</title>
+  <meta name="description" content="Calculate exact monthly EMI for home, car, or personal loans. View total interest, repayment amounts, and year-by-year amortization instantly." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tools.kitvane.workers.dev/loan-calculator/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph / Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kitvane">
+  <meta property="og:title" content="Loan & EMI Calculator: Kitvane Tools">
+  <meta property="og:description" content="Calculate exact monthly EMI for home, car, or personal loans. View total interest, repayment amounts, and year-by-year amortization instantly.">
+  <meta property="og:url" content="https://tools.kitvane.workers.dev/loan-calculator/">
   <meta property="og:image" content="https://tools.kitvane.workers.dev/og-image.png">
-  <meta property="og:image:secure_url" content="https://tools.kitvane.workers.dev/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Kitvane Free Online Tools">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://tools.kitvane.workers.dev/og-image.png">
-  <meta name="theme-color" content="#1d4ed8">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Loan &amp; EMI Calculator: Kitvane Tools" />
-  <meta property="og:description" content="Calculate monthly EMI, total interest, and year-by-year amortization table. Free, accurate, instant." />
-  <meta property="og:url" content="https://tools.kitvane.workers.dev/loan-calculator/" />
-  <meta property="og:site_name" content="Kitvane" />
+  <meta property="og:image:alt" content="Kitvane Tools: free online tools">
 
   <!-- Twitter Card -->
-  <meta name="twitter:title" content="Loan &amp; EMI Calculator: Kitvane Tools" />
-  <meta name="twitter:description" content="Calculate monthly EMI, total interest, and year-by-year amortization schedule for any loan. 100% free." />
-
-  <!-- JSON-LD Schemas -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loan & EMI Calculator: Kitvane Tools">
+  <meta name="twitter:description" content="Calculate exact monthly EMI for home, car, or personal loans. View total interest, repayment amounts, and year-by-year amortization instantly.">
+  <meta name="twitter:image" content="https://tools.kitvane.workers.dev/og-image.png">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "EMI Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "description": "Calculate exact monthly EMI for home, car, or personal loans with full amortization schedule.",
-        "url": "https://tools.kitvane.workers.dev/loan-calculator/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "EMI Calculator",
+      "url": "https://tools.kitvane.workers.dev/loan-calculator/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://tools.kitvane.workers.dev/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "EMI Calculator",
-            "item": "https://tools.kitvane.workers.dev/loan-calculator/"
+      "description": "Calculate exact monthly EMI for home, car, or personal loans with full amortization schedule."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tools.kitvane.workers.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "EMI Calculator",
+          "item": "https://tools.kitvane.workers.dev/loan-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI stands for Equated Monthly Installment. It is the fixed monthly amount you pay to a lender until the loan is fully repaid. Each payment consists of a principal component (which reduces your outstanding balance) and an interest component (which covers the cost of borrowing). In early payments, interest makes up the larger share; over time, the principal share grows."
           }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is EMI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "EMI stands for Equated Monthly Installment. It is the fixed monthly amount you pay to a lender until the loan is fully repaid. Each payment consists of a principal component (which reduces your outstanding balance) and an interest component (which covers the cost of borrowing). In early payments, interest makes up the larger share; over time, the principal share grows."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the EMI formula?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The standard EMI formula is: EMI = P × r × (1+r)^n / ((1+r)^n - 1), where P is the principal loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of monthly installments. For example, a $10,000 loan at 10% annual interest for 24 months gives r = 0.10/12 ≈ 0.008333 and EMI ≈ $461.45."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does the amortization table work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "An amortization table shows, for each payment period, how much of your EMI goes toward reducing the principal versus paying interest, and what your remaining balance is. In early periods, the interest component is large because you owe a large balance. As the balance decreases with each payment, interest charged also falls, so an increasing share of each EMI goes toward principal repayment."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does making an extra payment reduce my EMI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Making an extra (part-prepayment) typically reduces the outstanding principal, which in turn reduces total interest. Most lenders offer two choices: keep the EMI the same and shorten the loan tenure, or reduce the EMI and keep the tenure the same. Reducing tenure saves more interest overall. Always check if your lender charges a prepayment penalty before making extra payments."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is this calculator accurate for all countries?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "This calculator uses the standard reducing-balance EMI formula, which is universally used by banks and financial institutions worldwide. However, some lenders in certain countries use flat-rate interest (where interest is calculated on the original principal for the entire tenure, not the reducing balance). In flat-rate systems, the effective interest rate is significantly higher than the nominal rate. Always confirm with your lender which method they use."
-            }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the EMI formula?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard EMI formula is: EMI = P × r × (1+r)^n / ((1+r)^n - 1), where P is the principal loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of monthly installments. For example, a $10,000 loan at 10% annual interest for 24 months gives r = 0.10/12 ≈ 0.008333 and EMI ≈ $461.45."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the amortization table work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An amortization table shows, for each payment period, how much of your EMI goes toward reducing the principal versus paying interest, and what your remaining balance is. In early periods, the interest component is large because you owe a large balance. As the balance decreases with each payment, interest charged also falls, so an increasing share of each EMI goes toward principal repayment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does making an extra payment reduce my EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Making an extra (part-prepayment) typically reduces the outstanding principal, which in turn reduces total interest. Most lenders offer two choices: keep the EMI the same and shorten the loan tenure, or reduce the EMI and keep the tenure the same. Reducing tenure saves more interest overall. Always check if your lender charges a prepayment penalty before making extra payments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this calculator accurate for all countries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This calculator uses the standard reducing-balance EMI formula, which is universally used by banks and financial institutions worldwide. However, some lenders in certain countries use flat-rate interest (where interest is calculated on the original principal for the entire tenure, not the reducing balance). In flat-rate systems, the effective interest rate is significantly higher than the nominal rate. Always confirm with your lender which method they use."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
-
+  
+  
+  
+  <!-- JSON-LD Schemas -->
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -142,7 +145,7 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container">
-        <a href="../" class="navbar__logo" aria-label="Kitvane Home">
+        <a href="/" class="navbar__logo" aria-label="Kitvane Home">
           <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="36" height="36" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
           Kitvane <span class="navbar__badge">Tools</span>
         </a>
@@ -150,12 +153,12 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="navbar__nav" role="list">
-          <li><a href="../image-compressor/">Image Compressor</a></li>
-          <li><a href="../loan-calculator/" class="active">EMI Calculator</a></li>
-          <li><a href="../age-calculator/">Age Calculator</a></li>
-          <li><a href="../fancy-text/">Fancy Text</a></li>
-          <li><a href="../5-letter-words/">Word Finder</a></li>
-          <li><a href="../about/">About</a></li>
+          <li><a href="/image-compressor/">Image Compressor</a></li>
+          <li><a href="/loan-calculator/" class="active">EMI Calculator</a></li>
+          <li><a href="/age-calculator/">Age Calculator</a></li>
+          <li><a href="/fancy-text/">Fancy Text</a></li>
+          <li><a href="/5-letter-words/">Word Finder</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </div>
     </nav>
@@ -171,7 +174,7 @@
     <section class="tool-page-hero">
       <div class="container">
         <nav class="tool-page-hero__breadcrumb" aria-label="Breadcrumb">
-          <a href="../">Home</a>
+          <a href="/">Home</a>
           <span aria-hidden="true">›</span>
           <span aria-current="page">EMI Calculator</span>
         </nav>
@@ -194,18 +197,18 @@
         <div class="form-row">
           <div class="form-group">
             <label for="principal">Loan Principal Amount ($)</label>
-            <input type="number" id="principal" min="100" step="100" placeholder="e.g. 25000" />
+            <input type="number" id="principal" min="100" step="100" placeholder="e.g. 25000" value="25000" />
           </div>
           <div class="form-group">
             <label for="rate">Annual Interest Rate (%)</label>
-            <input type="number" id="rate" min="0.1" max="100" step="0.1" placeholder="e.g. 7.5" />
+            <input type="number" id="rate" min="0.1" max="100" step="0.1" placeholder="e.g. 7.5" value="7.5" />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="tenure">Loan Tenure</label>
-            <input type="number" id="tenure" min="1" max="360" step="1" placeholder="e.g. 5" />
+            <input type="number" id="tenure" min="1" max="360" step="1" placeholder="e.g. 5" value="5" />
           </div>
           <div class="form-group">
             <label for="tenure-unit">Tenure Period Unit</label>
@@ -443,14 +446,14 @@
         <!-- Related Tools -->
         <h2>Related Tools</h2>
         <div class="tools-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-          <a href="../age-calculator/" class="card" style="padding:20px;text-decoration:none;">
+          <a href="/age-calculator/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
               <i data-lucide="calendar" data-size="22"></i>
             </div>
             <p style="margin:8px 0 4px;font-weight:700;color:var(--text-primary);font-size:0.95rem;">Age Calculator</p>
             <p style="margin:0;font-size:0.85rem;color:var(--text-secondary);">Find exact age &amp; milestones</p>
           </a>
-          <a href="../image-compressor/" class="card" style="padding:20px;text-decoration:none;">
+          <a href="/image-compressor/" class="card" style="padding:20px;text-decoration:none;">
             <div class="card__icon-box">
               <i data-lucide="image" data-size="22"></i>
             </div>
@@ -468,7 +471,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="../" class="navbar__logo" style="font-size:1.2rem;">
+          <a href="/" class="navbar__logo" style="font-size:1.2rem;">
             <img src="/logo-mark.svg" alt="Kitvane Logo" class="navbar__logo-icon" width="30" height="30" style="width:30px;height:30px;" aria-hidden="true" onerror="if(this.src.indexOf('file:')===0)this.src='../logo-mark.svg'" />
             Kitvane
           </a>
@@ -477,25 +480,25 @@
         <div>
           <p class="footer__col-title">Tools</p>
           <ul class="footer__links">
-            <li><a href="../image-compressor/">Image Compressor</a></li>
-            <li><a href="../loan-calculator/">EMI Calculator</a></li>
-            <li><a href="../age-calculator/">Age Calculator</a></li>
-            <li><a href="../fancy-text/">Fancy Text</a></li>
-            <li><a href="../5-letter-words/">Word Finder</a></li>
+            <li><a href="/image-compressor/">Image Compressor</a></li>
+            <li><a href="/loan-calculator/">EMI Calculator</a></li>
+            <li><a href="/age-calculator/">Age Calculator</a></li>
+            <li><a href="/fancy-text/">Fancy Text</a></li>
+            <li><a href="/5-letter-words/">Word Finder</a></li>
           </ul>
         </div>
         <div>
           <p class="footer__col-title">Company</p>
           <ul class="footer__links">
-            <li><a href="../about/">About Us</a></li>
-            <li><a href="../contact/">Contact</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
         <div>
           <p class="footer__col-title">Legal</p>
           <ul class="footer__links">
-            <li><a href="../privacy-policy/">Privacy Policy</a></li>
-            <li><a href="../terms/">Terms of Service</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
           </ul>
         </div>
       </div>
@@ -624,6 +627,7 @@
         inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') calculate(true); });
       });
 
+      calculate(false);
       document.querySelectorAll('.footer-year').forEach(el => el.textContent = new Date().getFullYear());
     })();
   </script>

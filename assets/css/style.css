@@ -1238,7 +1238,7 @@ article a:hover {
   justify-content: center;
   flex-shrink: 0;
 }
-.step-item__title {
+.step-item__title, h3.step-item__title {
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 4px;
@@ -1646,3 +1646,6 @@ tr:hover td {
     font-size: 1.15rem;
   }
 }
+
+/* Step Item semantic H3 override */
+h3.step-item__title { font-size: 1rem; margin: 0 0 4px 0; font-weight: 700; color: var(--ink); line-height: 1.4; }

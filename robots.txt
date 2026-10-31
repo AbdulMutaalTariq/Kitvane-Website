@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kitvane.link/sitemap.xml
+Sitemap: https://tools.kitvane.workers.dev/sitemap.xml
